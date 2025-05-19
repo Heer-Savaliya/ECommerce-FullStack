@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+.text-pink{
+  color:rgb(247, 114, 121);
+}
+html, body {
+    overflow-x: hidden;
+}
+
+button{
+    cursor: pointer;
+}
+
+.font-dancing{
+    font-family: "Dancing Script", cursive;
+}
+.font-urban{
+  font-family: "Urbanist", sans-serif;
+}
+.font-poppins{
+  font-family: "Poppins", sans-serif;
+}
+.container {
+    width: 1250px;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
