@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
-.text-pink{
-  color:rgb(247, 114, 121);
+.text-purple{
+  color:rgb(170, 73, 194);
+}
+.bg-purple{
+  background-color: rgb(170, 73, 194);
+}
+.text-light-purple{
+  color:rgb(235, 92, 235);
 }
 html, body {
     overflow-x: hidden;
