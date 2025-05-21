@@ -50,10 +50,27 @@ button{
   font-family: "Poppins", sans-serif;
 }
 .container {
-    width: 1250px;
-    padding: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  /* padding: 4px; */
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;         */
+  margin: 0 auto;   
+}
 
+@media (max-width: 1024px){
+  .container{
+    max-width: 900px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 700px;
+    /* flex-direction: column;      
+    align-items: flex-start;    
+    text-align: center; */
+  }
 }

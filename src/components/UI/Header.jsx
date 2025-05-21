@@ -1,9 +1,10 @@
 import React from 'react'
+import Topbar from './Topbar'
 
 const Header = () => {
   return (
     <div>
-      <h1>header</h1>
+     <Topbar />
     </div>
   )
 }

@@ -29,7 +29,7 @@ const App = () => {
     },
     {
       path: "/dashboard",
-      element: <AppLayout />,
+      element: <AppLayout className="container" />,
       children: [
         {
           path: "",
