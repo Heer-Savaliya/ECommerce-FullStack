@@ -194,13 +194,13 @@ const Register = () => {
             <div className="flex flex-col lg:flex-row gap-5 py-4">
               <button
                 type="submit"
-                className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
+                className="custom-button"
               >
                 Sign Up
               </button>
               <NavLink
                 to="/login"
-                className="w-full text-center font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
+                className="custom-button"
               >
                 Sign In
               </NavLink>

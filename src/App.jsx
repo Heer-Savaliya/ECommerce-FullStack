@@ -11,9 +11,14 @@ import MyAccount from "./Pages/MyAccount";
 import ForgetPassword from "./Pages/ForgetPassword";
 import PageNotFound from "./Pages/PageNotFound";
 import PrivateRoute from "./Routes/PrivateRoute";
+import LandingPage from "./Pages/LandingPage";
 
 const App = () => {
   const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+    },
     {
       path: "/login",
       element: <Login />,
@@ -23,11 +28,11 @@ const App = () => {
       element: <Register />,
     },
     {
-      path: "/",
+      path: "/dashboard",
       element: <AppLayout />,
       children: [
         {
-          path: "/",
+          path: "",
           element: (
             <PrivateRoute>
               <Home />
@@ -35,7 +40,7 @@ const App = () => {
           ),
         },
         {
-          path: "/about",
+          path: "about",
           element: (
             <PrivateRoute>
               <About />
@@ -43,7 +48,7 @@ const App = () => {
           ),
         },
         {
-          path: "/contact",
+          path: "contact",
           element: (
             <PrivateRoute>
               <Contact />
@@ -51,7 +56,7 @@ const App = () => {
           ),
         },
         {
-          path: "/blog",
+          path: "blog",
           element: (
             <PrivateRoute>
               <Blog />
@@ -59,7 +64,7 @@ const App = () => {
           ),
         },
         {
-          path: "/my-account",
+          path: "my-account",
           element: (
             <PrivateRoute>
               <MyAccount />
@@ -67,7 +72,7 @@ const App = () => {
           ),
         },
         {
-          path: "/forget-pass",
+          path: "forget-pass",
           element: (
             <PrivateRoute>
               <ForgetPassword />

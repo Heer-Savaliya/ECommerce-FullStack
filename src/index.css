@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
+:root{
+  --dark-purple:#7a5cc9;
+  --light-purple:#a485f4;
+}
 .text-purple{
-  color:rgb(170, 73, 194);
+  color:var(--dark-purple);
 }
 .bg-purple{
-  background-color: rgb(170, 73, 194);
+  background-color: var(--dark-purple);
 }
 .text-light-purple{
-  color:rgb(235, 92, 235);
+  color:var(--light-purple);
 }
 html, body {
     overflow-x: hidden;
@@ -15,6 +19,25 @@ html, body {
 
 button{
     cursor: pointer;
+}
+
+.custom-button {
+  width: 100%;
+  font-weight: 600; 
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--dark-purple);
+  border: 2px solid var(--dark-purple); 
+  color: white;
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem;
+  border-radius: 1rem; 
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: white;
+  color: var(--dark-purple); 
 }
 
 .font-dancing{

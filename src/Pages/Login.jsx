@@ -26,7 +26,7 @@ const Login = () => {
         return;
       }
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -97,14 +97,14 @@ const Login = () => {
             <div className="flex flex-col lg:flex-row gap-5">
               <button
                 type="submit"
-                className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
+                className="custom-button"
               >
                 Sign In
               </button>
 
               <NavLink
                 to="/register"
-                className="w-full text-center font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
+                className="custom-button"
               >
                 Sign Up
               </NavLink>
