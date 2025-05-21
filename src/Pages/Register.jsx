@@ -1,14 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdMarkEmailUnread } from "react-icons/md";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, firestore } from "../firebaseConfig";
 import { RiLockPasswordFill, RiFacebookFill } from "react-icons/ri";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaPhoneAlt } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { IoLocationSharp } from "react-icons/io5";
+import { NavLink, useNavigate } from "react-router-dom";
+import Loader from "../components/UI/Loader";
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmpassword:"",
+    address: "",
+  });
+  const [error, setError] = useState("");
+  const [loader,setLoader] = useState(false);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { username, phone, email, password,confirmpassword, address } = formData;
+
+    // Validation
+    if(!username || !phone || !email || !password || !confirmpassword || !address){
+      setError("Please fill in all fields");
+      return;
+    }
+    const phonePattern = /^[6-9]\d{9}$/;
+    if(!phonePattern.test(phone)){
+      setError("Please enter a valid 10-digit phone number");
+      return;
+    }
+    if(password.length<6){
+      setError("Password must be of at least 6 characters");
+      return ;
+    }
+    if(password !== confirmpassword){
+      setError("Password not match with confirm password");
+      return;
+    }
+
+
+    try {
+      setLoader(true); 
+
+      // Create user in Auth
+      const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+      const user = userCredential.user;
+
+      // Store in FireStore
+      await setDoc(doc(firestore, "users", user.uid), {
+        username,
+        phone: Number(phone),
+        email,
+        address,
+        createdAt: new Date(),
+      });
+
+      alert("User registered and stored in Firestore");
+      navigate("/login");
+    } catch (err) {
+      setError(err.message);
+    }finally{
+      setLoader(false);
+    }
+  };
+
   return (
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
+      {loader && (
+        <Loader />
+      )}
+      
       <div className="bg-white shadow-lg overflow-x-hidden rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-10 w-full max-w-5xl">
         {/* Image Section */}
         <div className="w-full md:w-[45%]">
@@ -21,27 +98,41 @@ const Register = () => {
 
         {/* Form Section */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl pb-3 font-bold text-center text-purple font-urban">
+          <h1 className="text-3xl md:text-4xl pb-4 font-bold text-center text-purple font-urban">
             Create and Account !
           </h1>
 
-          <form className="space-y-4">
-            <div className="flex flex-col md:flex-row gap-2 py-2 w-full items-center justify-center">
+          <form onSubmit={handleSubmit} className="space-y-4">
+
+            {error && (
+              <p
+                style={{ color: "red" }}
+                className="text-center text-sm font-bold"
+              >
+                {error}
+              </p>
+            )}
+
+            <div className="flex flex-col md:flex-row  gap-5 md:gap-2 py-1 w-full items-center justify-center">
               <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
                 <FaUserCircle />
                 <input
                   type="text"
+                  name="username"
                   placeholder="Username"
                   className="outline-none border-none w-full"
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-                <MdMarkEmailUnread />
+                <FaPhoneAlt />
                 <input
                   type="phone"
+                  name="phone"
                   placeholder="Phone"
                   className="outline-none border-none w-full"
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -50,48 +141,57 @@ const Register = () => {
               <MdMarkEmailUnread />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="outline-none border-none w-full"
+                onChange={handleChange}
               />
             </div>
 
-            <div className="flex flex-col md:flex-row gap-2 py-2 w-full items-center justify-center">
+            <div className="flex flex-col md:flex-row gap-5 md:gap-2 py-1 w-full items-center justify-center">
+              <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <RiLockPasswordFill />
+                <input
+                  type="password"
+                  name='password'
+                  placeholder="Password"
+                  className="outline-none border-none w-full"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <RiLockPasswordFill />
+                <input
+                  type="password"
+                  name='confirmpassword'
+                  placeholder="Confirm Password"
+                  className="outline-none border-none w-full"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-            <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-              <RiLockPasswordFill />
-              <input
-                type="password"
-                placeholder="Password"
+            <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex  gap-4 text-gray-600">
+              <IoLocationSharp className="mt-1" />
+              <textarea
+                type="text"
+                name="address"
+                placeholder="Address"
                 className="outline-none border-none w-full"
+                onChange={handleChange}
               />
-            </div>
-            <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-              <RiLockPasswordFill />
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                className="outline-none border-none w-full"
-              />
-            </div>
-            </div>
-
-            <div className="px-2 py-1 text-center text-purple-800">
-              <NavLink className="">Forget Password ? </NavLink>
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col lg:flex-row gap-5">
-              <button
-                type="submit"
-                className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
-              >
-                Sign In
+            <div className="flex flex-col lg:flex-row gap-5 py-4">
+              <button className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition">
+                <NavLink to="/login">Sign In</NavLink>
               </button>
               <button
                 type="submit"
                 className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
               >
-                <NavLink to="/register">Sign Up</NavLink>
+                Sign Up
               </button>
             </div>
             <h2 className="text-center  text-sm text-gray-500">
