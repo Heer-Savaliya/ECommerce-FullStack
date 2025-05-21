@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { RiLockPasswordFill, RiFacebookFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig";
+import Loader from "../components/UI/Loader";
 
 const Login = () => {
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+  const [error,setError]=useState("");
+  const [loader,setLoader]=useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    try{
+      setLoader(true);
+
+      // Validation
+      if(!email || !password){
+        setError("All feilds are required");
+        return;
+      }
+      await signInWithEmailAndPassword(auth, email,password);
+        navigate("/");
+      }catch(err){
+        setError(err.message);
+      }finally{
+        setLoader(false);
+      }
+    };
+  
   return (
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
+
+      {loader && (
+        <Loader />
+      )}
+
       <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-15 w-full max-w-5xl">
         {/* Image Section */}
         <div className="w-full md:w-[70%]">
@@ -27,13 +60,18 @@ const Login = () => {
             Sign in to your Account!
           </h4>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+
+            {error && <p style={{ color: "red" }} className="text-center text-sm font-bold">{error}</p>}
+
             <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
               <MdMarkEmailUnread />
               <input
                 type="email"
+                value={email}
                 placeholder="Email"
                 className="outline-none border-none"
+                onChange={(e)=>setEmail(e.target.value)}
               />
             </div>
 
@@ -41,8 +79,10 @@ const Login = () => {
               <RiLockPasswordFill />
               <input
                 type="password"
+                value={password}
                 placeholder="Password"
                 className="outline-none border-none"
+                onChange={(e)=>setPassword(e.target.value)}
               />
             </div>
 
