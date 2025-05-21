@@ -9,37 +9,34 @@ import { auth } from "../firebaseConfig";
 import Loader from "../components/UI/Loader";
 
 const Login = () => {
-  const [email,setEmail]=useState("");
-  const [password,setPassword]=useState("");
-  const [error,setError]=useState("");
-  const [loader,setLoader]=useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       setLoader(true);
 
       // Validation
-      if(!email || !password){
+      if (!email || !password) {
         setError("All feilds are required");
         return;
       }
-      await signInWithEmailAndPassword(auth, email,password);
-        navigate("/");
-      }catch(err){
-        setError(err.message);
-      }finally{
-        setLoader(false);
-      }
-    };
-  
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoader(false);
+    }
+  };
+
   return (
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
-
-      {loader && (
-        <Loader />
-      )}
+      {loader && <Loader />}
 
       <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-15 w-full max-w-5xl">
         {/* Image Section */}
@@ -61,8 +58,14 @@ const Login = () => {
           </h4>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-
-            {error && <p style={{ color: "red" }} className="text-center text-sm font-bold">{error}</p>}
+            {error && (
+              <p
+                style={{ color: "red" }}
+                className="text-center text-sm font-semibold"
+              >
+                {error}
+              </p>
+            )}
 
             <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
               <MdMarkEmailUnread />
@@ -70,8 +73,8 @@ const Login = () => {
                 type="email"
                 value={email}
                 placeholder="Email"
-                className="outline-none border-none"
-                onChange={(e)=>setEmail(e.target.value)}
+                className="outline-none border-none w-full"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -82,7 +85,7 @@ const Login = () => {
                 value={password}
                 placeholder="Password"
                 className="outline-none border-none"
-                onChange={(e)=>setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
@@ -98,24 +101,25 @@ const Login = () => {
               >
                 Sign In
               </button>
-              <button
-                type="submit"
-                className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
+
+              <NavLink
+                to="/register"
+                className="w-full text-center font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
               >
-                <NavLink to="/register">Sign Up</NavLink>
-              </button>
+                Sign Up
+              </NavLink>
             </div>
-            <h2 className="text-center  text-sm text-gray-500">
+            <h2 className="text-center text-sm text-gray-500">
               or login with
             </h2>
 
             {/* Other platform */}
             <div className="flex items-center justify-center gap-6">
               <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
-                <RiFacebookFill className="m-2 text-blue-600"/>
+                <RiFacebookFill className="m-2 text-blue-600" />
               </div>
               <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
-                <FcGoogle className="m-2"/>
+                <FcGoogle className="m-2" />
               </div>
               <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
                 <FaLinkedinIn className="m-2 text-blue-700" />

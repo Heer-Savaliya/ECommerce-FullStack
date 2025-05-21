@@ -17,11 +17,11 @@ const Register = () => {
     phone: "",
     email: "",
     password: "",
-    confirmpassword:"",
+    confirmpassword: "",
     address: "",
   });
   const [error, setError] = useState("");
-  const [loader,setLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,33 +33,44 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, phone, email, password,confirmpassword, address } = formData;
+    const { username, phone, email, password, confirmpassword, address } =
+      formData;
 
     // Validation
-    if(!username || !phone || !email || !password || !confirmpassword || !address){
+    if (
+      !username ||
+      !phone ||
+      !email ||
+      !password ||
+      !confirmpassword ||
+      !address
+    ) {
       setError("Please fill in all fields");
       return;
     }
     const phonePattern = /^[6-9]\d{9}$/;
-    if(!phonePattern.test(phone)){
+    if (!phonePattern.test(phone)) {
       setError("Please enter a valid 10-digit phone number");
       return;
     }
-    if(password.length<6){
+    if (password.length < 6) {
       setError("Password must be of at least 6 characters");
-      return ;
+      return;
     }
-    if(password !== confirmpassword){
+    if (password !== confirmpassword) {
       setError("Password not match with confirm password");
       return;
     }
 
-
     try {
-      setLoader(true); 
+      setLoader(true);
 
       // Create user in Auth
-      const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Store in FireStore
@@ -75,17 +86,15 @@ const Register = () => {
       navigate("/login");
     } catch (err) {
       setError(err.message);
-    }finally{
+    } finally {
       setLoader(false);
     }
   };
 
   return (
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
-      {loader && (
-        <Loader />
-      )}
-      
+      {loader && <Loader />}
+
       <div className="bg-white shadow-lg overflow-x-hidden rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-10 w-full max-w-5xl">
         {/* Image Section */}
         <div className="w-full md:w-[45%]">
@@ -103,11 +112,10 @@ const Register = () => {
           </h1>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-
             {error && (
               <p
                 style={{ color: "red" }}
-                className="text-center text-sm font-bold"
+                className="text-center text-sm font-semibold"
               >
                 {error}
               </p>
@@ -153,7 +161,7 @@ const Register = () => {
                 <RiLockPasswordFill />
                 <input
                   type="password"
-                  name='password'
+                  name="password"
                   placeholder="Password"
                   className="outline-none border-none w-full"
                   onChange={handleChange}
@@ -163,7 +171,7 @@ const Register = () => {
                 <RiLockPasswordFill />
                 <input
                   type="password"
-                  name='confirmpassword'
+                  name="confirmpassword"
                   placeholder="Confirm Password"
                   className="outline-none border-none w-full"
                   onChange={handleChange}
@@ -184,15 +192,18 @@ const Register = () => {
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-5 py-4">
-              <button className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition">
-                <NavLink to="/login">Sign In</NavLink>
-              </button>
               <button
                 type="submit"
                 className="w-full font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
               >
                 Sign Up
               </button>
+              <NavLink
+                to="/login"
+                className="w-full text-center font-semibold uppercase bg-purple-400 border-2 border-purple-400 text-white py-2 rounded-2xl hover:bg-white hover:text-purple-500 transition"
+              >
+                Sign In
+              </NavLink>
             </div>
             <h2 className="text-center  text-sm text-gray-500">
               or login with
