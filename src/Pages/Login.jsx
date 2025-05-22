@@ -28,7 +28,22 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/dashboard");
     } catch (err) {
-      setError(err.message);
+      switch(err.code){
+        case "auth/invalid-credential":
+          setError ("Invalid credentails");
+          break;
+        case "auth/user-not-found":
+          setError("No user found with this email");
+          break;
+        case "auth/wrong-password":
+          setError("Incorrect Password");
+          break;
+        case "auth/too-many-requests":
+          setError("Too many attempts");
+          break;
+        default:
+          setError("Something went wrong. Please try again later");
+      }
     } finally {
       setLoader(false);
     }
@@ -95,20 +110,16 @@ const Login = () => {
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-5">
-              <button
-                type="submit"
-                className="custom-button"
-              >
+              <button type="submit" className="custom-button">
                 Sign In
               </button>
 
-              <NavLink
-                to="/register"
-                className="custom-button"
-              >
+              <NavLink to="/register" className="custom-button">
                 Sign Up
               </NavLink>
             </div>
+
+
             <h2 className="text-center text-sm text-gray-500">
               or login with
             </h2>

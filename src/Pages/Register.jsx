@@ -20,45 +20,72 @@ const Register = () => {
     confirmpassword: "",
     address: "",
   });
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
+  const [err,setErr] = useState("");
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({...formData,[e.target.name]: e.target.value});
+    setErrors({ ...errors , [e.target.name]: ""});
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, phone, email, password, confirmpassword, address } =
-      formData;
+    const { username, phone, email, password, confirmpassword, address } =formData;
 
     // Validation
-    if (
-      !username ||
-      !phone ||
-      !email ||
-      !password ||
-      !confirmpassword ||
-      !address
-    ) {
-      setError("Please fill in all fields");
-      return;
-    }
-    const phonePattern = /^[6-9]\d{9}$/;
-    if (!phonePattern.test(phone)) {
-      setError("Please enter a valid 10-digit phone number");
-      return;
-    }
-    if (password.length < 6) {
-      setError("Password must be of at least 6 characters");
-      return;
-    }
-    if (password !== confirmpassword) {
-      setError("Password not match with confirm password");
+
+    // if (
+    //   !username ||
+    //   !phone ||
+    //   !email ||
+    //   !password ||
+    //   !confirmpassword ||
+    //   !address
+    // ) {
+    //   setError("Please fill in all fields");
+    //   return;
+    // }
+    // const phonePattern = /^[6-9]\d{9}$/;
+    // if (!phonePattern.test(phone)) {
+    //   setError("Please enter a valid 10-digit phone number");
+    //   return;
+    // }
+    // if (password.length < 6) {
+    //   setError("Password must be of at least 6 characters");
+    //   return;
+    // }
+    // if (password !== confirmpassword) {
+    //   setError("Password not match with confirm password");
+    //   return;
+    // }
+
+    // validation
+
+    let newErrors = {};
+    if (!username) newErrors.username = "* Username is required";
+
+    if (!phone) newErrors.phone = "* Phone is required";
+    else if (!/^[6-9]\d{9}$/.test(phone))
+      newErrors.phone = "* Enter valid 10-digit phone no.";
+
+    if (!email) newErrors.email = "* Email is required";
+
+    if (!password) newErrors.password = "* Password is required";
+    else if (password.length < 6)
+      newErrors.password = "* Password must be of at least 6 characters";
+
+    if (!confirmpassword)
+      newErrors.confirmpassword = "* Confirem Password is required";
+    else if (password != confirmpassword)
+      newErrors.confirmpassword = "* Password not match";
+
+    if (!address) newErrors.address = "* Address is required";
+
+    // If any error
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -66,11 +93,7 @@ const Register = () => {
       setLoader(true);
 
       // Create user in Auth
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth,email,password);
       const user = userCredential.user;
 
       // Store in FireStore
@@ -85,7 +108,19 @@ const Register = () => {
       alert("User registered and stored in Firestore");
       navigate("/login");
     } catch (err) {
-      setError(err.message);
+      switch (err.code) {
+        case "auth/email-already-in-use":
+          setErr("This email is already registered");
+          break;
+        case "auth/invalid-email":
+          setErr("Please enter a valid email address");
+          break;
+        case "auth/weak-password":
+          setErr("Password is too weak (minimum 6 characters)");
+          break;
+        default:
+          setErr("Something went wrong. Please try again.");
+}
     } finally {
       setLoader(false);
     }
@@ -107,117 +142,154 @@ const Register = () => {
 
         {/* Form Section */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl pb-4 font-bold text-center text-purple font-urban">
-            Create and Account !
+
+          <h1 className="text-2xl md:text-4xl pb-4 font-bold text-center text-purple font-urban">
+            Create an Account !
           </h1>
 
+          {err && <p style={{ color: "red" }} className="text-center text-sm font-semibold pb-3">{err}</p>}
+
           <form onSubmit={handleSubmit} className="space-y-4">
-            {error && (
-              <p
-                style={{ color: "red" }}
-                className="text-center text-sm font-semibold"
-              >
-                {error}
-              </p>
-            )}
-
-            <div className="flex flex-col md:flex-row  gap-5 md:gap-2 py-1 w-full items-center justify-center">
-              <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-                <FaUserCircle />
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                  className="outline-none border-none w-full"
-                  onChange={handleChange}
-                />
+            {/* Username & Phone */}
+            <div className="flex flex-col lg:flex-row gap-4">
+              {/* Username */}
+              <div className="w-full lg:w-1/2 flex flex-col gap-1">
+                {errors.username && (
+                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                    {errors.username}
+                  </p>
+                )}
+                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                  <FaUserCircle />
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    className="outline-none border-none w-full"
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
 
-              <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-                <FaPhoneAlt />
+              {/* Phone */}
+              <div className="w-full lg:w-1/2 flex flex-col gap-1">
+                {errors.phone && (
+                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                    {errors.phone}
+                  </p>
+                )}
+                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                  <FaPhoneAlt />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone"
+                    className="outline-none border-none w-full"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-1 w-full">
+              {errors.email && (
+                <p className="text-left text-red-500 text-sm font-semibold px-1">
+                  {errors.email}
+                </p>
+              )}
+              <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <MdMarkEmailUnread />
                 <input
-                  type="phone"
-                  name="phone"
-                  placeholder="Phone"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
                   className="outline-none border-none w-full"
                   onChange={handleChange}
                 />
               </div>
             </div>
 
-            <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-              <MdMarkEmailUnread />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="outline-none border-none w-full"
-                onChange={handleChange}
-              />
+            {/* Password & Confirm Password */}
+            <div className="flex flex-col lg:flex-row gap-4">
+              {/* Password */}
+              <div className="w-full lg:w-1/2 flex flex-col gap-1">
+                {errors.password && (
+                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                    {errors.password}
+                  </p>
+                )}
+                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                  <RiLockPasswordFill />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="outline-none border-none w-full"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              {/* Confirm Password */}
+              <div className="w-full lg:w-1/2 flex flex-col gap-1">
+                {errors.confirmpassword && (
+                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                    {errors.confirmpassword}
+                  </p>
+                )}
+                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                  <RiLockPasswordFill />
+                  <input
+                    type="password"
+                    name="confirmpassword"
+                    placeholder="Confirm Password"
+                    className="outline-none border-none w-full"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-5 md:gap-2 py-1 w-full items-center justify-center">
-              <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-                <RiLockPasswordFill />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="outline-none border-none w-full"
+            {/* Address */}
+            <div className="flex flex-col gap-1 w-full">
+              {errors.address && (
+                <p className="text-left text-red-500 text-sm font-semibold px-1">
+                  {errors.address}
+                </p>
+              )}
+              <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-start gap-4 text-gray-600">
+                <IoLocationSharp className="mt-1" />
+                <textarea
+                  name="address"
+                  placeholder="Address"
+                  className="outline-none border-none w-full resize-none"
                   onChange={handleChange}
                 />
               </div>
-              <div className="w-full lg:w-1/2 px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
-                <RiLockPasswordFill />
-                <input
-                  type="password"
-                  name="confirmpassword"
-                  placeholder="Confirm Password"
-                  className="outline-none border-none w-full"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex  gap-4 text-gray-600">
-              <IoLocationSharp className="mt-1" />
-              <textarea
-                type="text"
-                name="address"
-                placeholder="Address"
-                className="outline-none border-none w-full"
-                onChange={handleChange}
-              />
             </div>
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-5 py-4">
-              <button
-                type="submit"
-                className="custom-button"
-              >
+              <button type="submit" className="custom-button">
                 Sign Up
               </button>
-              <NavLink
-                to="/login"
-                className="custom-button"
-              >
+              <NavLink to="/login" className="custom-button">
                 Sign In
               </NavLink>
             </div>
-            <h2 className="text-center  text-sm text-gray-500">
-              or login with
-            </h2>
 
-            {/* Other platform */}
+            <h2 className="text-center text-sm text-gray-500">or login with</h2>
+
+            {/* Social Logins */}
             <div className="flex items-center justify-center gap-6">
-              <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer">
                 <RiFacebookFill className="m-2 text-blue-600" />
               </div>
-              <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer">
                 <FcGoogle className="m-2" />
               </div>
-              <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer">
                 <FaLinkedinIn className="m-2 text-blue-700" />
               </div>
             </div>
