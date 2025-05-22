@@ -1,4 +1,5 @@
 import React from "react";
+import OtherTopbar from "./OtherTopbar";
 
 const Topbar = () => {
   return (
@@ -18,6 +19,9 @@ const Topbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Additional topbar */}
+      <OtherTopbar />
     </div>
   );
 };
