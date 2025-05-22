@@ -77,7 +77,7 @@ const Register = () => {
       newErrors.password = "* Password must be of at least 6 characters";
 
     if (!confirmpassword)
-      newErrors.confirmpassword = "* Confirem Password is required";
+      newErrors.confirmpassword = "* Confirm Password is required";
     else if (password != confirmpassword)
       newErrors.confirmpassword = "* Password not match";
 
@@ -155,7 +155,7 @@ const Register = () => {
               {/* Username */}
               <div className="w-full lg:w-1/2 flex flex-col gap-1">
                 {errors.username && (
-                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                  <p className="text-left text-red-500 text-[12px] font-semibold px-1">
                     {errors.username}
                   </p>
                 )}
@@ -174,7 +174,7 @@ const Register = () => {
               {/* Phone */}
               <div className="w-full lg:w-1/2 flex flex-col gap-1">
                 {errors.phone && (
-                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                  <p className="text-left text-red-500 text-[12px]  font-semibold px-1">
                     {errors.phone}
                   </p>
                 )}
@@ -194,7 +194,7 @@ const Register = () => {
             {/* Email */}
             <div className="flex flex-col gap-1 w-full">
               {errors.email && (
-                <p className="text-left text-red-500 text-sm font-semibold px-1">
+                <p className="text-left text-red-500 text-[12px] font-semibold px-1">
                   {errors.email}
                 </p>
               )}
@@ -215,7 +215,7 @@ const Register = () => {
               {/* Password */}
               <div className="w-full lg:w-1/2 flex flex-col gap-1">
                 {errors.password && (
-                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                  <p className="text-left text-red-500 text-[12px]  font-semibold px-1">
                     {errors.password}
                   </p>
                 )}
@@ -234,7 +234,7 @@ const Register = () => {
               {/* Confirm Password */}
               <div className="w-full lg:w-1/2 flex flex-col gap-1">
                 {errors.confirmpassword && (
-                  <p className="text-left text-red-500 text-sm font-semibold px-1">
+                  <p className="text-left text-red-500 text-[12px]  font-semibold px-1">
                     {errors.confirmpassword}
                   </p>
                 )}
@@ -254,7 +254,7 @@ const Register = () => {
             {/* Address */}
             <div className="flex flex-col gap-1 w-full">
               {errors.address && (
-                <p className="text-left text-red-500 text-sm font-semibold px-1">
+                <p className="text-left text-red-500 text-[12px]  font-semibold px-1">
                   {errors.address}
                 </p>
               )}
