@@ -271,10 +271,10 @@ const Register = () => {
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-5 py-4">
-              <button type="submit" className="custom-button">
+              <button type="submit" className="custom-button w-full">
                 Sign Up
               </button>
-              <NavLink to="/login" className="custom-button">
+              <NavLink to="/login" className="custom-button w-full">
                 Sign In
               </NavLink>
             </div>

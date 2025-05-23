@@ -1,10 +1,11 @@
 import React from 'react'
+import Slider from '../components/UI/HomeUi/Slider'
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <>
+      <Slider />
+    </>
   )
 }
 

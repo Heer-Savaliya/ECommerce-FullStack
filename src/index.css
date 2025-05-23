@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root{
-  --dark-purple:#7a5cc9;
+  --dark-purple:#694bb6;
   --light-purple:#a485f4;
 }
 .text-purple{
@@ -26,8 +26,7 @@ button{
 }
 
 .custom-button {
-  width: 100%;
-  font-weight: 600; 
+  font-weight: 500; 
   text-align: center;
   text-transform: uppercase;
   background-color: var(--dark-purple);
@@ -40,7 +39,7 @@ button{
 }
 
 .custom-button:hover {
-  background-color: white;
+  background-color: transparent;
   color: var(--dark-purple); 
 }
 
@@ -52,6 +51,16 @@ button{
 }
 .font-poppins{
   font-family: "Poppins", sans-serif;
+}
+
+/* Custom Swiper Pagination Styles */
+.swiper-pagination-bullet {
+  background-color: #d1d5db; 
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--dark-purple) !important; 
 }
 
 .container {

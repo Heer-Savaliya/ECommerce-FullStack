@@ -110,11 +110,11 @@ const Login = () => {
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-5">
-              <button type="submit" className="custom-button">
+              <button type="submit" className="custom-button w-full">
                 Sign In
               </button>
 
-              <NavLink to="/register" className="custom-button">
+              <NavLink to="/register" className="custom-button w-full">
                 Sign Up
               </NavLink>
             </div>
