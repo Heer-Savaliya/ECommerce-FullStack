@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 const PrivateRoute = ({children}) => {
     const [user,loading] = useAuthState(auth);
     if(loading){
-        return <p>Loading</p>;
+        return <p></p>;
     }
     return user ? children : <Navigate to="/login"/>;
   

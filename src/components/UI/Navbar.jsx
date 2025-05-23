@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
     const navigate = useNavigate();
   return (
-    <div className='bg-white shadow w-full text-[11px] lg:text-[12.5px] py-2 font-medium'>
+    <div className='bg-white shadow w-full text-[11px] lg:text-[12.5px] py-2 font-medium hidden md:block'>
       <div className='container flex items-center justify-between'>
         <div className='flex items-center gap-3'>
             <div className='flex  items-center gap-1 cursor-pointer' onClick={()=> navigate("/")}>
