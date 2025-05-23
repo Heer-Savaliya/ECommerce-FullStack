@@ -49,7 +49,7 @@ const Slider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative w-full h-[210px] md:h-[410px] lg:h-[450px] xl:h-[490px] bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12"
+              className="relative w-full h-[210px] md:h-[410px] lg:h-[420px] xl:h-[490px] bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="bg-white/50 p-4 sm:p-6 md:p-8 rounded-xl max-w-full sm:max-w-lg text-left">
@@ -57,10 +57,10 @@ const Slider = () => {
                 <span className="inline-block bg-linear-65 from-green-200 to-transparent text-green-700 px-3 py-1 text-xs sm:text-sm rounded-[10px] font-semibold">
                   {slide.tag}
                 </span>
-                <h2 className="text-md md:text-2xl lg:text-3xl font-bold text-purple mt-2 sm:mt-3">
+                <h2 className="text-md md:text-xl lg:text-2xl font-bold text-purple mt-2 sm:mt-3">
                   {slide.title}
                 </h2>
-                <p className="text-gray-600 text-[10px] sm:text-xs md:text-sm mt-3">{slide.description}</p>
+                <p className="text-gray-600 text-[8px] sm:text-xs mt-3">{slide.description}</p>
                 </div>
                 <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-3 mt-5">
                   <button className="py-2 px-5 custom-button text-xs sm:text-sm md:text-md">
@@ -73,7 +73,7 @@ const Slider = () => {
                     <span className="line-through text-gray-500 ml-2 text-xs sm:text-sm">
                       {slide.priceOld}
                     </span>
-                    <p className="text-gray-500 text-[8px] sm:text-sm">Don't miss this limited time offer.</p>
+                    <p className="text-gray-500 text-[8px] sm:text-xs">Don't miss this limited time offer.</p>
                   </div>
                 </div>
               </div>
