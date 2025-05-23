@@ -6,16 +6,19 @@ import { auth } from "../firebaseConfig";
 const LandingPage = () => {
     const navigate = useNavigate();
     const [user,loading] = useAuthState(auth);
-    if(user){
-      return navigate("/dashboard");
-    }
-    useEffect(()=>{
-        const timer = setTimeout(()=>{
-            navigate("/login");
-        },3000);
+     useEffect(() => {
+    if (loading) return; // Wait for auth to load
 
-        return ()=>clearTimeout(timer);
-    },[navigate]);
+    if (user) {
+      navigate("/dashboard"); // ✅ Safe navigation after auth loaded
+    } else {
+      const timer = setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+
+      return () => clearTimeout(timer); // Cleanup on unmount
+    }
+  }, [user, loading, navigate]);
 
   return (
     <div className="bg-purple min-h-screen flex flex-col items-center justify-center">
