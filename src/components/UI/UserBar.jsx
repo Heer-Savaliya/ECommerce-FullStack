@@ -71,7 +71,7 @@ const UserBar = () => {
 
 {/* Bottom Menu (Mobile only) */}
       {menuOpen && (
-        <MobileMenu />
+        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       )}
     </>
   );
