@@ -12,7 +12,7 @@ const Navbar = () => {
                 Home
                 <IoIosArrowDown className='mt-0.5'/>
             </div>
-            <div className='flex items-center gap-1 cursor-pointer' onClick={()=>navigate("./about")}>
+            <div className='flex items-center gap-1 cursor-pointer' onClick={()=>navigate("./shop")}>
                 Shop
                 <IoIosArrowDown className='mt-0.5'/>
             </div>
