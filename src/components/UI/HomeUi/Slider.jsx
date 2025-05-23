@@ -49,7 +49,7 @@ const Slider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative w-full h-[210px] md:h-[410px] lg:h-[420px] xl:h-[490px] bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12"
+              className="relative w-full h-[210px] sm:h-[280px] md:h-[370px] lg:h-[390px] xl:h-[490px] bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="bg-white/50 p-4 sm:p-6 md:p-8 rounded-xl max-w-full sm:max-w-lg text-left">
