@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig";
 
 const LandingPage = () => {
     const navigate = useNavigate();
+    const [user,loading] = useAuthState(auth);
+    if(user){
+      return navigate("/dashboard");
+    }
     useEffect(()=>{
         const timer = setTimeout(()=>{
             navigate("/login");
