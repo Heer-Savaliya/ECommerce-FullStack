@@ -9,7 +9,7 @@ import { MdSettingsSuggest, MdContactSupport } from "react-icons/md";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 
-const MobileMenu = ({menuOpen ,setMenuOpen}) => {
+const MobileMenu = ({setMenuOpen}) => {
   const navigate = useNavigate();
   const closeMobileMenu =()=>{
     setMenuOpen(false);
@@ -42,7 +42,7 @@ const MobileMenu = ({menuOpen ,setMenuOpen}) => {
               <h4 className="text-xs text-gray-600">heersavaliya@gmail.com</h4>
             </div>
           </div>
-          <IoClose onClick={closeMobileMenu}/>
+          <IoClose onClick={closeMobileMenu} className="cursor-pointer"/>
           </div>
           <div
             onClick={() => navigate("/profile")}
