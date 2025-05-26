@@ -14,11 +14,11 @@ const FooterEmail = () => {
       </div>
       <div className="w-full md:w-auto">
         <div className="bg-white flex border-2 border-gray-400 rounded-[10px]  gap-2">
-          <div className="p-2 lg:p-3 flex flex-1 items-center gap-2">
+          <div className="p-2 lg:p-2.5 flex flex-1 items-center gap-2">
             <img
               src="./images/message_logo.png"
               alt="Message_logo"
-              className="w-5 h-4"
+              className="w-4 h-3"
             />
             <input
               type="email"
@@ -28,9 +28,9 @@ const FooterEmail = () => {
               className="outline-none border-none text-gray-500 text-sm "
             />
           </div>
-          <div className="bg-purple h-auto p-2 lg:p-3 px-5 lg:px-6 rounded-r-[8px]">
+          <div className="bg-purple h-auto p-2 lg:p-2.5 px-5 lg:px-6 rounded-r-[8px]">
 
-          <button className="capitalize font-semibold text-white bg-purple">send</button>
+          <button className="capitalize font-semibold text-white bg-purple text-xs lg:text-base">send</button>
           </div>
         </div>
         <h1 className="text-xs mt-2 text-gray-500 hidden lg:block">By subscribing you agree to our <span className="text-purple">Terms & Conditions and Privacy & Cookies Policy</span></h1>
