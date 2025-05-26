@@ -36,7 +36,7 @@ const slides = [
 
 const Slider = () => {
   return (
-    <div className="container !py-4 sm:!py-5">
+    <div className="!py-4 sm:!py-5">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={30}
