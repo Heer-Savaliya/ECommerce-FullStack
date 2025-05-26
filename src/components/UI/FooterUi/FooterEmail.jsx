@@ -33,6 +33,7 @@ const FooterEmail = () => {
           <button className="capitalize font-semibold text-white bg-purple">send</button>
           </div>
         </div>
+        <h1 className="text-xs mt-2 text-gray-500 hidden lg:block">By subscribing you agree to our <span className="text-purple">Terms & Conditions and Privacy & Cookies Policy</span></h1>
       </div>
     </div>
   );
