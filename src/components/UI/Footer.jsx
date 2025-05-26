@@ -1,9 +1,12 @@
 import React from 'react'
+import FooterEmail from './FooterUi/FooterEmail'
 
 const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
+    <div className='bg-gray-100 w-full py-5 '>
+      <div className='container'>
+        <FooterEmail />
+      </div>
     </div>
   )
 }
