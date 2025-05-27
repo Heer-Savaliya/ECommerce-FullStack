@@ -32,9 +32,9 @@ const Category = () => {
             New products with updated stocks
           </p>
         </div>
-        <div className="custom-button text-[10px] px-4 !py-1">
+        <button className="custom-button text-[10px] px-4 !py-1 ">
           View All
-        </div>
+        </button>
       </div>
 
       <Swiper
