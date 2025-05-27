@@ -25,7 +25,7 @@ const DailyOffer = () => {
       {offers.map((offer, index) => (
         <div
           key={index}
-          className="rounded-2xl overflow-hidden relative bg-cover bg-center flex items-center px-5 w-full min-h-[110px] md:min-h-[210px]"
+          className="shine-button !border-none rounded-2xl overflow-hidden relative bg-cover bg-center flex items-center px-5 w-full min-h-[110px] md:min-h-[210px]"
           style={{ backgroundImage: `url(${offer.img})` }}
         >
           <div className="max-w-[220px] flex flex-col items-start gap-0.5 md:gap-2">
