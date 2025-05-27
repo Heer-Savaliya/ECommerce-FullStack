@@ -2,7 +2,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
-import { FreeMode } from "swiper/modules";
+import "swiper/css/autoplay"; 
+
+import { FreeMode, Autoplay } from "swiper/modules";
 
 const Category = () => {
   const categories = [
@@ -26,35 +28,43 @@ const Category = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-baseline gap-5">
           <h1 className="text-lg font-semibold">Featured Categories</h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm hidden md:block">
             New products with updated stocks
           </p>
         </div>
-        <div className="text-sm text-purple-600 cursor-pointer font-medium">
+        <div className="custom-button text-[10px] px-4 !py-1">
           View All
         </div>
       </div>
 
       <Swiper
         spaceBetween={15}
-        slidesPerView={3.2}
+        slidesPerView={3}
         freeMode={true}
         touchStartPreventDefault={false}
-        modules={[FreeMode]}
+        modules={[FreeMode, Autoplay]}
+        autoplay={{
+          delay: 2000, // 2 second
+          disableOnInteraction: false, // keep autoplay after manual swipe
+        }}
         breakpoints={{
-          640: { slidesPerView: 4 },
-          768: { slidesPerView: 5 },
-          1024: { slidesPerView: 8 },
+          365: { slidesPerView: 3.5 },
+          420: { slidesPerView: 4 },
+          560: { slidesPerView: 5 },
+          660: { slidesPerView: 5.5 },
+          740: { slidesPerView: 6 },
+          1050: { slidesPerView: 7 },
+          1550: { slidesPerView: 8 },
         }}
         className="!py-3"
       >
         {categories.map((cat, idx) => (
           <SwiperSlide key={idx}>
             <div
-              className={`flex flex-col items-center ${cat.bg} p-2 rounded-[13px]`}
+              className={`flex flex-col items-center ${cat.bg} p-2 rounded-[13px] w-25 md:w-auto`}
             >
-              <img src={cat.img} alt={cat.label} className="w-20" />
-              <p className="text-xs text-center">{cat.label}</p>
+              <img src={cat.img} alt={cat.label} className="w-15 md:w-20" />
+              <p className="text-[8px] lg:text-xs text-center">{cat.label}</p>
             </div>
           </SwiperSlide>
         ))}
