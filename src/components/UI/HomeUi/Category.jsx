@@ -44,7 +44,7 @@ const Category = () => {
         touchStartPreventDefault={false}
         modules={[FreeMode, Autoplay]}
         autoplay={{
-          delay: 2000, // 2 second
+          delay: 2000, 
           disableOnInteraction: false, // keep autoplay after manual swipe
         }}
         breakpoints={{
