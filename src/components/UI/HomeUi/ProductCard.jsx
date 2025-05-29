@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { initializeAOS } from "../../../utilis/initializeAOS";
 
 const ProductCard = () => {
+  useEffect(() => {
+    initializeAOS();
+}, []);
+  
   // Built-in product data for trial
   const productList = [
     {
@@ -91,6 +96,8 @@ const ProductCard = () => {
     <div
       key={product.id}
       className="bg-white border border-gray-300 rounded-lg shadow-md p-3 relative overflow-hidden"
+      data-aos="fade-in"
+      data-aos-duration="3000"
     >
       {/* Discount Badge */}
       <div className="absolute top-3 left-3 bg-red-600 text-white text-[8px] md:text-[10px] lg:text-[12px] font-semibold px-2 md:px-3 py-1 rounded-xl">

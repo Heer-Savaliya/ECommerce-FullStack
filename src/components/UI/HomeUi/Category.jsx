@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/autoplay"; 
-
+import { initializeAOS } from "../../../utilis/initializeAOS";
 import { FreeMode, Autoplay } from "swiper/modules";
 
 const Category = () => {
+  useEffect(() => {
+  initializeAOS();
+}, []);
   const categories = [
     { img: "./images/c1.png", label: "Fruits & Vegis", bg: "bg-green-100" },
     { img: "./images/c2.png", label: "Baby & Pregnancy", bg: "bg-blue-100" },
@@ -44,7 +47,7 @@ const Category = () => {
         touchStartPreventDefault={false}
         modules={[FreeMode, Autoplay]}
         autoplay={{
-          delay: 2000, 
+          delay: 3000, 
           disableOnInteraction: false, // keep autoplay after manual swipe
         }}
         breakpoints={{
@@ -62,6 +65,7 @@ const Category = () => {
           <SwiperSlide key={idx}>
             <div
               className={`flex flex-col items-center ${cat.bg} p-2 rounded-[13px] w-25 md:w-auto`}
+              data-aos="fade-right"
             >
               <img src={cat.img} alt={cat.label} className="w-15 md:w-20" />
               <p className="text-[8px] lg:text-xs text-center">{cat.label}</p>

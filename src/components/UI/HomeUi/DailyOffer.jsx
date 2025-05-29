@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoIosArrowForward } from "react-icons/io";
+import { initializeAOS } from '../../../utilis/initializeAOS';
 
 const DailyOffer = () => {
+  useEffect(() => {
+    initializeAOS();
+}, []);
+
   const offers = [
     {
       img: "./images/banner1.png",
@@ -27,6 +32,7 @@ const DailyOffer = () => {
           key={index}
           className="shine-button !border-none rounded-2xl overflow-hidden relative bg-cover bg-center flex items-center px-5 w-full min-h-[110px] md:min-h-[210px]"
           style={{ backgroundImage: `url(${offer.img})` }}
+          data-aos="fade-up"
         >
           <div className="max-w-[220px] flex flex-col items-start gap-0.5 md:gap-2">
             <p className="text-red-500 text-[8px] md:text-xs">Only this week</p>
