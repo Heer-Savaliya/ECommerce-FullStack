@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { auth } from "../../firebaseConfig";
+import { auth } from "../../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../MobileMenu";
+
 
 const UserBar = () => {
   const navigate = useNavigate();

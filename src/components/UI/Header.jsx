@@ -1,9 +1,9 @@
 import React from "react";
-import Topbar from "./Topbar";
+import Topbar from "./HeaderUi/Topbar";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "./SearchBar";
-import UserBar from "./UserBar";
-import Navbar from "./Navbar";
+import SearchBar from "./HeaderUi/SearchBar";
+import UserBar from "./HeaderUi/UserBar";
+import Navbar from "./HeaderUi/Navbar";
 
 const Header = () => {
   const navigate = useNavigate();
