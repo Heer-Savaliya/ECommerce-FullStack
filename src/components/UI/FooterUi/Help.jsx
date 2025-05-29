@@ -19,7 +19,7 @@ const Help = () => {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <img src="./images/logo/message_logo.png" alt="Message" className="w-4 md:w-6 h-3 md:h-5 mt-1" />
+          <img src="./images/logo/message_logo1.png" alt="Message" className="w-4 md:w-6 h-3 md:h-5 mt-1" />
           <div>
             <p className="text-gray-500 text-xs md:text-[13px]" >Need help with your order?</p>
             <h3 className="font-semibold text-black">info@example.com</h3>

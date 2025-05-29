@@ -18,7 +18,7 @@ const Header = () => {
           {/* Logo + Location */}
           <div className="flex items-center gap-4">
             <img
-              src="./images/full_logo.png"
+              src="./images/logo/full_logo.png"
               alt="Logo"
               className="h-7 lg:h-8 hidden md:block"
             />
@@ -28,7 +28,7 @@ const Header = () => {
               className="h-8 block md:hidden"
             />
             <img
-              src="./images/location_logo.png"
+              src="./images/logo/location_logo.png"
               alt="Location"
               className="h-5 lg:h-6 hidden md:block"
             />
