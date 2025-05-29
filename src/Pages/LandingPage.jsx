@@ -10,7 +10,7 @@ const LandingPage = () => {
     if (loading) return; // Wait for auth to load
 
     if (user) {
-      navigate("/dashboard"); // ✅ Safe navigation after auth loaded
+      navigate("/dashboard"); // Safe navigation after auth loaded
     } else {
       const timer = setTimeout(() => {
         navigate("/login");

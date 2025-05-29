@@ -9,6 +9,7 @@ import { auth } from "../firebaseConfig";
 import Loader from "../components/UI/Loader";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { initializeAOS } from "../utilis/initializeAOS";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,10 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // animation duration in ms
-      once: true, // whether animation should happen only once
-    });
+    initializeAOS();
   }, []);
 
   const handleSubmit = async (e) => {

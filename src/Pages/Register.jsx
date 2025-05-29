@@ -12,13 +12,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Loader from "../components/UI/Loader";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { initializeAOS } from "../utilis/initializeAOS";
 
 const Register = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // animation duration in ms
-      once: true, // whether animation should happen only once
-    });
+    initializeAOS();
   }, []);
 
   const [formData, setFormData] = useState({
@@ -45,33 +43,6 @@ const Register = () => {
       formData;
 
     // Validation
-
-    // if (
-    //   !username ||
-    //   !phone ||
-    //   !email ||
-    //   !password ||
-    //   !confirmpassword ||
-    //   !address
-    // ) {
-    //   setError("Please fill in all fields");
-    //   return;
-    // }
-    // const phonePattern = /^[6-9]\d{9}$/;
-    // if (!phonePattern.test(phone)) {
-    //   setError("Please enter a valid 10-digit phone number");
-    //   return;
-    // }
-    // if (password.length < 6) {
-    //   setError("Password must be of at least 6 characters");
-    //   return;
-    // }
-    // if (password !== confirmpassword) {
-    //   setError("Password not match with confirm password");
-    //   return;
-    // }
-
-    // validation
 
     let newErrors = {};
     if (!username) newErrors.username = "* Username is required";
