@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -10,8 +10,18 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
 import { NavLink, useNavigate } from "react-router-dom";
 import Loader from "../components/UI/Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Register = () => {
+
+  useEffect(() => {
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true,     // whether animation should happen only once
+  });
+}, []);
+
   const [formData, setFormData] = useState({
     username: "",
     phone: "",
@@ -137,6 +147,7 @@ const Register = () => {
             src="./images/bg5.jpg"
             alt="Login"
             className="w-full h-auto object-cover rounded"
+            data-aos="zoom-in"
           />
         </div>
 
@@ -283,13 +294,13 @@ const Register = () => {
 
             {/* Social Logins */}
             <div className="flex items-center justify-center gap-6">
-              <div className="border border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
                 <RiFacebookFill className="m-2 text-blue-600" />
               </div>
-              <div className="border border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
                 <FcGoogle className="m-2" />
               </div>
-              <div className="border border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
                 <FaLinkedinIn className="m-2 text-blue-700" />
               </div>
             </div>

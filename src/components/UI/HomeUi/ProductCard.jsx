@@ -56,7 +56,7 @@ const ProductCard = () => {
     {
       id: 6,
       title: "Deluxe Pepperoni Frozen Pizza, Thin Crust",
-      image: "./images/p10.jpg",
+      image: "./images/p11.jpg",
       price: 7.49,
       originalPrice: 8.99,
       discount: 17,
@@ -66,7 +66,17 @@ const ProductCard = () => {
     {
       id: 7,
       title: "Deluxe Pepperoni Frozen Pizza, Thin Crust",
-      image: "./images/p10.jpg",
+      image: "./images/p12.jpg",
+      price: 7.49,
+      originalPrice: 8.99,
+      discount: 17,
+      rating: 5,
+      inStock: true,
+    },
+    {
+      id: 7,
+      title: "Deluxe Pepperoni Frozen Pizza, Thin Crust",
+      image: "./images/p13.jpg",
       price: 7.49,
       originalPrice: 8.99,
       discount: 17,
@@ -76,7 +86,7 @@ const ProductCard = () => {
   ];
 
   return (
-   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-col-5 2xl:grid-cols-6 gap-2 w-full">
+   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 gap-2 w-full">
   {productList.map((product) => (
     <div
       key={product.id}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { RiLockPasswordFill, RiFacebookFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
@@ -7,6 +7,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import Loader from "../components/UI/Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +17,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true,     // whether animation should happen only once
+  });
+}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,6 +70,7 @@ const Login = () => {
             src="./images/login_bg2.jpg"
             alt="Login"
             className="w-full h-auto object-cover rounded"
+            data-aos="zoom-in"
           />
         </div>
 
@@ -126,13 +137,13 @@ const Login = () => {
 
             {/* Other platform */}
             <div className="flex items-center justify-center gap-6">
-              <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
                 <RiFacebookFill className="m-2 text-blue-600" />
               </div>
-              <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
                 <FcGoogle className="m-2" />
               </div>
-              <div className="border-[1px] border-gray-400 rounded-full cursor-pointer">
+              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
                 <FaLinkedinIn className="m-2 text-blue-700" />
               </div>
             </div>
