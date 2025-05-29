@@ -11,7 +11,7 @@ const Topbar = () => {
             FREE delivery & 40% Discount for next 3 orders! Place your 1st order in.
           </div>
           
-          {/* Hide this on small screens, show on md and above */}
+          {/* Hide in small screen*/}
           <div className="text-[9.5px] md:text-[10.5px] hidden md:block">
             Sales end in : <span className="text-[12.5px]  md:text-[15.5px] font-semibold">47</span> days{" "}
             <span className="text-[12.5px] md:text-[15.5px] font-semibold">06</span> hours{" "}

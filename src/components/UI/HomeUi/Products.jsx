@@ -1,10 +1,10 @@
-import React from 'react';
-import ProductCard from './ProductCard';
+import React from "react";
+import ProductCard from "./ProductCard";
 
 const Products = () => {
   return (
     <div className="py-5">
-        <ProductCard />
+      <ProductCard />
     </div>
   );
 };

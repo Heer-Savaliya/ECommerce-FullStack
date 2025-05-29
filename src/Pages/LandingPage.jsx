@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig";
 
 const LandingPage = () => {
-    const navigate = useNavigate();
-    const [user,loading] = useAuthState(auth);
-     useEffect(() => {
+  const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth);
+  useEffect(() => {
     if (loading) return; // Wait for auth to load
 
     if (user) {
@@ -31,12 +31,10 @@ const LandingPage = () => {
           Any shopping just from home
         </p>
 
-        <div>
-
-        </div>
+        <div></div>
 
         <div className="pt-10 text-purple-300 text-xs md:text-sm">
-            Version 0.0.1
+          Version 0.0.1
         </div>
       </div>
     </div>

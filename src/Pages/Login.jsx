@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { RiLockPasswordFill, RiFacebookFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
@@ -10,7 +10,6 @@ import Loader from "../components/UI/Loader";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,11 +18,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  AOS.init({
-    duration: 1000, // animation duration in ms
-    once: true,     // whether animation should happen only once
-  });
-}, []);
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      once: true, // whether animation should happen only once
+    });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,9 +37,9 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/dashboard");
     } catch (err) {
-      switch(err.code){
+      switch (err.code) {
         case "auth/invalid-credential":
-          setError ("Invalid credentails");
+          setError("Invalid credentails");
           break;
         case "auth/user-not-found":
           setError("No user found with this email");
@@ -130,10 +129,7 @@ const Login = () => {
               </NavLink>
             </div>
 
-
-            <h2 className="text-center text-sm text-gray-500">
-              or login with
-            </h2>
+            <h2 className="text-center text-sm text-gray-500">or login with</h2>
 
             {/* Other platform */}
             <div className="flex items-center justify-center gap-6">

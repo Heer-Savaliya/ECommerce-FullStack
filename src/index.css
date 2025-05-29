@@ -1,71 +1,81 @@
 @import "tailwindcss";
 
-:root{
-  --dark-purple:#694bb6;
-  --light-purple:#a485f4;
-}
-.text-purple{
-  color:var(--dark-purple);
-}
-.bg-purple{
-  background-color: var(--dark-purple);
-}
-.text-light-purple{
-  color:var(--light-purple);
-}
-html, body {
-    overflow-x: hidden;
-    font-family: poppins;
+:root {
+  --dark-purple: #694bb6;
+  --light-purple: #a485f4;
 }
 
-.shadow{
+.text-purple {
+  color: var(--dark-purple);
+}
+
+.bg-purple {
+  background-color: var(--dark-purple);
+}
+
+.text-light-purple {
+  color: var(--light-purple);
+}
+
+html,
+body {
+  overflow-x: hidden;
+  font-family: poppins;
+}
+
+.shadow {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 6px 24px 0px, rgba(0, 0, 0, 0.09) 0px 0px 0px 1px;
 }
-.custom-shadow{
+
+.custom-shadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-button{
-    cursor: pointer;
+
+button {
+  cursor: pointer;
 }
 
 .custom-button {
-  font-weight: 500; 
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   background-color: var(--dark-purple);
-  border: 2px solid var(--dark-purple); 
+  border: 2px solid var(--dark-purple);
   color: white;
-  padding-top: 0.5rem; 
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-radius: 1rem; 
+  border-radius: 1rem;
   transition: all 0.3s ease;
 }
 
 .custom-button:hover {
   background-color: transparent;
-  color: var(--dark-purple); 
+  color: var(--dark-purple);
 }
 
-.font-dancing{
-    font-family: "Dancing Script", cursive;
+.font-dancing {
+  font-family: "Dancing Script", cursive;
 }
-.font-urban{
+
+.font-urban {
   font-family: "Urbanist", sans-serif;
 }
-.font-poppins{
+
+.font-poppins {
   font-family: "Poppins", sans-serif;
 }
 
 /* Custom Swiper Pagination Styles */
 .swiper-pagination-bullet {
-  background-color: #d1d5db; 
+  background-color: #d1d5db;
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--dark-purple) !important; 
+  background-color: var(--dark-purple) !important;
 }
-.shine-button{
+
+.shine-button {
   position: relative;
   overflow: hidden;
   border: 1px solid black;
@@ -73,6 +83,7 @@ button{
   background-color: white;
   color: black;
 }
+
 .shine-button::before {
   content: '';
   position: absolute;
@@ -80,12 +91,10 @@ button{
   left: -75%;
   width: 30%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.458) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.458) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: skewX(-20deg);
   z-index: 1;
   pointer-events: none;
@@ -103,6 +112,7 @@ button{
   0% {
     left: -75%;
   }
+
   100% {
     left: 125%;
   }
@@ -111,20 +121,22 @@ button{
 .container {
   width: 100%;
   max-width: 2000px;
-  padding: 0 1rem; 
-  margin: 0 auto;    
-}  
+  padding: 0 1rem;
+  margin: 0 auto;
+}
 
 @media (max-width: 1900px) {
   .container {
     max-width: 1500px;
   }
 }
+
 @media (max-width: 1600px) {
   .container {
     max-width: 1200px;
   }
 }
+
 /* Large laptops and smaller desktops */
 @media (max-width: 1200px) {
   .container {
@@ -142,13 +154,13 @@ button{
 @media (max-width: 768px) {
   .container {
     max-width: 100%;
-    padding: 0 1rem;  
+    padding: 0 1rem;
   }
 }
 
 @media (max-width: 668px) {
   .container {
-    padding: 0 0.75rem;  
+    padding: 0 0.75rem;
   }
 }
 
@@ -157,19 +169,19 @@ button{
 /* scroll bar */
 
 ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #ccc;
+  background: #ccc;
 }
 
 ::-webkit-scrollbar-thumb {
-    background:  var(--dark-purple);
-    border-radius: 10px;
+  background: var(--dark-purple);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--light-purple);
+  background: var(--light-purple);
 }

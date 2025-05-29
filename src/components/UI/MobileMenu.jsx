@@ -9,40 +9,39 @@ import { MdSettingsSuggest, MdContactSupport } from "react-icons/md";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 
-const MobileMenu = ({setMenuOpen}) => {
+const MobileMenu = ({ setMenuOpen }) => {
   const navigate = useNavigate();
-  const closeMobileMenu =()=>{
+  const closeMobileMenu = () => {
     setMenuOpen(false);
-  }
-  const handleLogout =async()=>{
-    try{
-        await signOut(auth);
-        navigate("/login");
-    }catch(err){
-        console.error("Logout error : ",err);
+  };
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout error : ", err);
     }
-  }
+  };
   return (
     <div>
       <div className="fixed bottom-0 left-0 w-full bg-white overflow-hidden shadow rounded-t-2xl z-50 md:hidden">
         <div className="flex flex-col items-start px-6 py-5 gap-2">
-
-        <div className="flex justify-between w-full">
-           
-        
+          <div className="flex justify-between w-full">
             {/* User profile */}
-          <div className="flex flex-wrap items-center gap-3 pb-6">
-            <img
-              src="./images/users/default_p.jpg"
-              alt=""
-              className="w-12 h-12 rounded-full"
-            />
-            <div className="">
-              <h2 className="text-sm font-medium">Heer Savaliya</h2>
-              <h4 className="text-xs text-gray-600">heersavaliya@gmail.com</h4>
+            <div className="flex flex-wrap items-center gap-3 pb-6">
+              <img
+                src="./images/users/default_p.jpg"
+                alt=""
+                className="w-12 h-12 rounded-full"
+              />
+              <div className="">
+                <h2 className="text-sm font-medium">Heer Savaliya</h2>
+                <h4 className="text-xs text-gray-600">
+                  heersavaliya@gmail.com
+                </h4>
+              </div>
             </div>
-          </div>
-          <IoClose onClick={closeMobileMenu} className="cursor-pointer"/>
+            <IoClose onClick={closeMobileMenu} className="cursor-pointer" />
           </div>
           <div
             onClick={() => navigate("/profile")}

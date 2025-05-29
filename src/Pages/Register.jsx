@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -14,13 +14,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Register = () => {
-
   useEffect(() => {
-  AOS.init({
-    duration: 1000, // animation duration in ms
-    once: true,     // whether animation should happen only once
-  });
-}, []);
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      once: true, // whether animation should happen only once
+    });
+  }, []);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -31,18 +30,19 @@ const Register = () => {
     address: "",
   });
   const [errors, setErrors] = useState({});
-  const [err,setErr] = useState("");
+  const [err, setErr] = useState("");
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({...formData,[e.target.name]: e.target.value});
-    setErrors({ ...errors , [e.target.name]: ""});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, phone, email, password, confirmpassword, address } =formData;
+    const { username, phone, email, password, confirmpassword, address } =
+      formData;
 
     // Validation
 
@@ -103,7 +103,11 @@ const Register = () => {
       setLoader(true);
 
       // Create user in Auth
-      const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Store in FireStore
@@ -130,7 +134,7 @@ const Register = () => {
           break;
         default:
           setErr("Something went wrong. Please try again.");
-}
+      }
     } finally {
       setLoader(false);
     }
@@ -153,12 +157,18 @@ const Register = () => {
 
         {/* Form Section */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-
           <h1 className="text-2xl md:text-4xl pb-4 font-bold text-center text-purple font-urban">
             Create an Account !
           </h1>
 
-          {err && <p style={{ color: "red" }} className="text-center text-sm font-semibold pb-3">{err}</p>}
+          {err && (
+            <p
+              style={{ color: "red" }}
+              className="text-center text-sm font-semibold pb-3"
+            >
+              {err}
+            </p>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Username & Phone */}

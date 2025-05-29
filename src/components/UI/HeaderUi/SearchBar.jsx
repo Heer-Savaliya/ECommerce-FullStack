@@ -8,7 +8,7 @@ const SearchBar = () => {
         placeholder="Search for products, categories or brands..."
         className="   w-full border-none outline-none text-xs md:text-sm text-gray-600"
       />
-      <img src="./images/logo/search_logo.png" alt="" className="w-3 md:w-4"/>
+      <img src="./images/logo/search_logo.png" alt="" className="w-3 md:w-4" />
     </div>
   );
 };
