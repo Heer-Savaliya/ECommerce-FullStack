@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className=" cursor-pointer" onClick={() => navigate("./about")}>
             Blog
           </div>
-          <div className=" cursor-pointer" onClick={() => navigate("./about")}>
+          <div className=" cursor-pointer" onClick={() => navigate("./contact")}>
             Contact
           </div>
         </div>
