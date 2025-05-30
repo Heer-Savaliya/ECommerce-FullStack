@@ -7,8 +7,8 @@ import { TbMessage2Heart } from "react-icons/tb";
 
 const ContactForm = () => {
   return (
-    <div>
-      <p className="text-[12px] text-gray-500">
+    <div >
+      <p className="text-[12px] hidden md:block text-gray-500">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
         quam non ipsam! Illo corrupti soluta perferendis officia eligendi
         nostrum maxime?
