@@ -1,9 +1,11 @@
 import React from 'react'
 import OfficeInfo from '../components/UI/ContactUi/OfficeInfo'
+import ContactForm from '../components/UI/ContactUi/ContactForm'
+import AboutUs from '../components/UI/AboutUs'
 
 const Contact = () => {
   return (
-    <div className='container !py-10'>
+    <div className='container !py-15'>
       <div>
         <div className='text-center flex items-center justify-center flex-col gap-2'>
           <h1 className='text-lg md:text-3xl font-semibold capitalize'>Contact with us</h1>
@@ -12,16 +14,18 @@ const Contact = () => {
 
         <hr className='w-full text-gray-300 my-8 md:my-10'/>
 
-        <div className='flex flex-col md:flex-row items-start gap-10 '>
+        <div className='flex flex-col md:flex-row items-start gap-15 mb-15'>
           {/* Office info */}
           <OfficeInfo />
 
           {/* Contact form */}
           <div className='md:flex-1/2'>
-            2
+            <ContactForm />
           </div>
         </div>
       </div>
+
+      <AboutUs />
     </div>
   )
 }

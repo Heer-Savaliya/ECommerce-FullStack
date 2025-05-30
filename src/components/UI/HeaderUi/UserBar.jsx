@@ -25,7 +25,7 @@ const UserBar = () => {
       <div className="flex items-center justify-around flex-row-reverse md:flex-row md:justify-center  gap-4 px-10 py-1 md:px-0">
         <div className="relative group">
           <img
-            src="./images/logo/user_logo.png"
+            src="/images/logo/user_logo.png"
             className="w-4 lg:w-5 cursor-pointer"
             alt="User"
           />
@@ -39,7 +39,7 @@ const UserBar = () => {
             3
           </div>
           <img
-            src="./images/logo/like_logo.png"
+            src="/images/logo/like_logo.png"
             className="w-5 lg:w-6 cursor-pointer"
             alt="Like"
           />
@@ -49,7 +49,7 @@ const UserBar = () => {
             3
           </div>
           <img
-            src="./images/logo/cart_logo.png"
+            src="/images/logo/cart_logo.png"
             className="w-5 lg:w-6 cursor-pointer"
             alt="Cart"
           />

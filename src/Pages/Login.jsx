@@ -64,7 +64,7 @@ const Login = () => {
         {/* Image Section */}
         <div className="w-full md:w-[70%]">
           <img
-            src="./images/login_bg2.jpg"
+            src="/images/login_bg2.jpg"
             alt="Login"
             className="w-full h-auto object-cover rounded"
             data-aos="zoom-in"

@@ -30,7 +30,7 @@ const MobileMenu = ({ setMenuOpen }) => {
             {/* User profile */}
             <div className="flex flex-wrap items-center gap-3 pb-6">
               <img
-                src="./images/users/default_p.jpg"
+                src="/images/users/default_p.jpg"
                 alt=""
                 className="w-12 h-12 rounded-full"
               />

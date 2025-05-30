@@ -14,7 +14,7 @@ const Help = () => {
         <div className="flex md:flex-col items-start justify-between">
           <div className="flex items-center gap-3 mb-4">
             <img
-              src="./images/logo/phone_logo.png"
+              src="/images/logo/phone_logo.png"
               alt="Phone"
               className="w-4 md:w-6 h-4 md:h-6 mt-1"
             />
@@ -29,7 +29,7 @@ const Help = () => {
           </div>
           <div className="flex items-center gap-3">
             <img
-              src="./images/logo/message_logo1.png"
+              src="/images/logo/message_logo1.png"
               alt="Message"
               className="w-4 md:w-6 h-3 md:h-5 mt-1"
             />
@@ -139,7 +139,7 @@ const Help = () => {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <img
-              src="./images/logo/google_play.png"
+              src="/images/logo/google_play.png"
               alt="Google Play"
               className="w-15 md:w-25"
             />
@@ -150,7 +150,7 @@ const Help = () => {
           </div>
           <div className="flex items-center gap-3">
             <img
-              src="./images/logo/app_store.png"
+              src="/images/logo/app_store.png"
               alt="App Store"
               className="w-15 md:w-25"
             />
@@ -166,28 +166,28 @@ const Help = () => {
             <div className="flex gap-3">
               <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.facebook.com" target='_blank'>
                 <img
-                  src="./images/logo/facebook_logo.png"
+                  src="/images/logo/facebook_logo.png"
                   alt="Facebook"
                   className="w-4"
                 />
               </NavLink>
               <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.twitter.com" target='_blank'>
                 <img
-                  src="./images/logo/x_logo.png"
+                  src="/images/logo/x_logo.png"
                   alt="Twitter/X"
                   className="w-4"
                 />
               </NavLink>
               <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.instagram.com" target='_blank'>
                 <img
-                  src="./images/logo/insta_logo.png"
+                  src="/images/logo/insta_logo.png"
                   alt="Instagram"
                   className="w-4"
                 />
               </NavLink>
               <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.linkdein.com" target='_blank'>
                 <img
-                  src="./images/logo/linkdein_logo.png"
+                  src="/images/logo/linkdein_logo.png"
                   alt="LinkedIn"
                   className="w-4"
                 />

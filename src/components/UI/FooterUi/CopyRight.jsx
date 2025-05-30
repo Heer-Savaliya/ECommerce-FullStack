@@ -23,35 +23,35 @@ const CopyRight = () => {
       <div className="flex items-center justify-center lg:justify-start gap-3 mt-4 mb-10 md:mb-0">
         <NavLink to="https://www.visa.co.in/" target="_blank">
         <img
-          src="./images/logo/payment1.png"
+          src="/images/logo/payment1.png"
           alt="visa_logo"
           className="w-10"
         />
         </NavLink>
         <NavLink to="https://www.mastercard.co.in" target="_blank">
         <img
-          src="./images/logo/payment2.png"
+          src="/images/logo/payment2.png"
           alt="master_logo"
           className="w-7"
         />
         </NavLink>
         <NavLink to="https://www.paypal.com" target="_blank">
         <img
-          src="./images/logo/payment3.png"
+          src="/images/logo/payment3.png"
           alt="paypal_logo"
           className="w-15"
         />
         </NavLink>
         <NavLink to="https://www.skrill.com" target="_blank">
         <img
-          src="./images/logo/payment4.png"
+          src="/images/logo/payment4.png"
           alt="skrill_logo"
           className="w-10"
         />
         </NavLink>
         <NavLink to="https://www.klarna.com" target="_blank">
         <img
-          src="./images/logo/payment5.png"
+          src="/images/logo/payment5.png"
           alt="klarna_logo"
           className="w-16"
         />

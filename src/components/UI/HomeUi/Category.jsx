@@ -11,19 +11,19 @@ const Category = () => {
   initializeAOS();
 }, []);
   const categories = [
-    { img: "./images/c1.png", label: "Fruits & Vegis", bg: "bg-green-100" },
-    { img: "./images/c2.png", label: "Baby & Pregnancy", bg: "bg-blue-100" },
-    { img: "./images/c3.png", label: "Beverages", bg: "bg-orange-100" },
-    { img: "./images/c4.png", label: "Meats & Seafood", bg: "bg-pink-100" },
-    { img: "./images/c5.png", label: "Biscuits & Snacks", bg: "bg-gray-200" },
-    { img: "./images/c6.png", label: "Breads & Bakery", bg: "bg-amber-100" },
-    { img: "./images/c7.png", label: "Breakfast & Dairy", bg: "bg-blue-50" },
-    { img: "./images/c8.png", label: "Frozen Foods", bg: "bg-orange-100" },
-    { img: "./images/c9.png", label: "Grocery", bg: "bg-red-100" },
-    { img: "./images/c6.png", label: "Breads & Bakery", bg: "bg-amber-100" },
-    { img: "./images/c7.png", label: "Breakfast & Dairy", bg: "bg-blue-50" },
-    { img: "./images/c8.png", label: "Frozen Foods", bg: "bg-orange-100" },
-    { img: "./images/c9.png", label: "Grocery", bg: "bg-red-100" },
+    { img: "/images/c1.png", label: "Fruits & Vegis", bg: "bg-green-100" },
+    { img: "/images/c2.png", label: "Baby & Pregnancy", bg: "bg-blue-100" },
+    { img: "/images/c3.png", label: "Beverages", bg: "bg-orange-100" },
+    { img: "/images/c4.png", label: "Meats & Seafood", bg: "bg-pink-100" },
+    { img: "/images/c5.png", label: "Biscuits & Snacks", bg: "bg-gray-200" },
+    { img: "/images/c6.png", label: "Breads & Bakery", bg: "bg-amber-100" },
+    { img: "/images/c7.png", label: "Breakfast & Dairy", bg: "bg-blue-50" },
+    { img: "/images/c8.png", label: "Frozen Foods", bg: "bg-orange-100" },
+    { img: "/images/c9.png", label: "Grocery", bg: "bg-red-100" },
+    { img: "/images/c6.png", label: "Breads & Bakery", bg: "bg-amber-100" },
+    { img: "/images/c7.png", label: "Breakfast & Dairy", bg: "bg-blue-50" },
+    { img: "/images/c8.png", label: "Frozen Foods", bg: "bg-orange-100" },
+    { img: "/images/c9.png", label: "Grocery", bg: "bg-red-100" },
   ];
 
   return (

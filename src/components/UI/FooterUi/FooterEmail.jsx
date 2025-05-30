@@ -16,7 +16,7 @@ const FooterEmail = () => {
         <div className="bg-white flex border-2 border-gray-300 rounded-[10px]  gap-2">
           <div className="p-2 lg:p-2.5 flex flex-1 items-center gap-2">
             <img
-              src="./images/logo/message_logo.png"
+              src="/images/logo/message_logo.png"
               alt="Message"
               className="w-4 h-3"
             />

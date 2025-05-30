@@ -9,17 +9,17 @@ const DailyOffer = () => {
 
   const offers = [
     {
-      img: "./images/banner1.png",
+      img: "/images/banner1.png",
       title: "Quality eggs at an affordable price",
       subtitle: "Eat one every day",
     },
     {
-      img: "./images/banner2.png",
+      img: "/images/banner2.png",
       title: "Fresh vegetables with daily discounts",
       subtitle: "Only for today",
     },
     {
-      img: "./images/banner3.png",
+      img: "/images/banner3.png",
       title: "Get your dairy essentials",
       subtitle: "Hurry while stock lasts",
     },

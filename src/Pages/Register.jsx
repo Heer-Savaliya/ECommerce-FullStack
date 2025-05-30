@@ -119,7 +119,7 @@ const Register = () => {
         {/* Image Section */}
         <div className="w-full md:w-[45%]">
           <img
-            src="./images/bg5.jpg"
+            src="/images/bg5.jpg"
             alt="Login"
             className="w-full h-auto object-cover rounded"
             data-aos="zoom-in"

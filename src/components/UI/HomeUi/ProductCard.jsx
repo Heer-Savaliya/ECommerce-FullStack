@@ -44,7 +44,7 @@ const ProductCard = () => {
           {/* Wishlist Heart */}
           <div className="absolute top-2 right-2 bg-white p-2 rounded-full cursor-pointer">
             <img
-              src="./images/logo/like_logo.png"
+              src="/images/logo/like_logo.png"
               alt="wishlist"
               className="w-3 md:w-4 lg:w-4.5"
             />
@@ -82,7 +82,7 @@ const ProductCard = () => {
           <div className="flex items-end justify-between">
             <button className="bg-green-600 text-white p-2 rounded-full">
               <img
-                src="./images/logo/cart_white.png"
+                src="/images/logo/cart_white.png"
                 alt="cart"
                 className="w-3 md:w-4 lg:w-4.5"
               />
