@@ -7,8 +7,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import Loader from "../components/UI/Loader";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { initializeAOS } from "../utilis/initializeAOS";
 
 const Login = () => {
@@ -58,7 +56,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
-      {loader && <Loader />}
+      {loader ? (<Loader />) : (
 
       <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-15 w-full max-w-5xl">
         {/* Image Section */}
@@ -144,6 +142,8 @@ const Login = () => {
           </form>
         </div>
       </div>
+
+      )}
     </div>
   );
 };

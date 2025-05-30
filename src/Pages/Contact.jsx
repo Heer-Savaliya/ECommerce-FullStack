@@ -6,6 +6,7 @@ import AboutUs from '../components/UI/AboutUs'
 const Contact = () => {
   return (
     <div className='container !py-15'>
+      
       <div>
         <div className='text-center flex items-center justify-center flex-col gap-2'>
           <h1 className='text-lg md:text-3xl font-semibold capitalize'>Contact with us</h1>

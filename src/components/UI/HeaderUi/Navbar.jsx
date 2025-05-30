@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className=" cursor-pointer" onClick={() => navigate("./about")}>
             Bevrages
           </div>
-          <div className=" cursor-pointer" onClick={() => navigate("./about")}>
+          <div className=" cursor-pointer" onClick={() => navigate("./blog")}>
             Blog
           </div>
           <div className=" cursor-pointer" onClick={() => navigate("./contact")}>
