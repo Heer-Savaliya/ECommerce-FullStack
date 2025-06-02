@@ -1,7 +1,7 @@
 import React from 'react'
 import OfficeInfo from '../components/UI/ContactUi/OfficeInfo'
 import ContactForm from '../components/UI/ContactUi/ContactForm'
-import AboutUs from '../components/UI/AboutUs'
+import AboutUs from '../components/UI/AboutUi/AboutUs'
 
 const Contact = () => {
   return (
