@@ -62,32 +62,50 @@ const blogPosts = [
 
   return (
     <div className='container !py-8 md:!py-10'>
-      <h1 className='font-semibold text-sm md:text-base mb-6'>Recent blog posts</h1>
+      <h1 className='font-semibold text-sm md:text-base'>Recent blog posts</h1>
 
-      {/* Blogs */}
-      {/* <div className='grid '>
-          <div>
-            <img src="" alt="" />
-          </div>
-      </div> */}
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
           {blogPosts.map((post, index) => (
-            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm">
-              <img src={post.img} alt={post.title} className="w-full h-48 object-cover" />
+            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm ">
+            
+            <div className='relative group cursor-pointer'>
+
+              <img src={post.img} alt={post.title} className=" w-full h-35 md:h-48 object-cover transition-transform duration-500" />
+              <div className='absolute inset-0 bg-[rgba(20,19,19,0.5)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center'>
+                <button className='bg-gray-50 py-2 px-4 text-xs md:text-sm rounded-2xl text-gray-700'>Read more</button>
+              </div>
+            </div>
               <div className="p-4">
-                <h3 className="text-lg font-semibold mb-1">{post.title}</h3>
-                <p className="text-sm text-gray-500">
+                <h3 className="text-sm md:text-[16.5px] font-semibold mb-1">{post.title}</h3>
+                <p className="text-xs md:text-[13.5px] text-gray-500">
                   {post.author} • {post.date}
                 </p>
               </div>
             </div>
           ))}
         </div>
-        <div className="text-center mt-10">
-          <button className="px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300">Loading more...</button>
-        </div>
+        
   
+
+  {/* Section 1 */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">🛒 Shop Fresh, Save More — Every Day!</h2>
+        <p className="text-gray-700 leading-7">
+          At <strong>Jinstore</strong>, we believe that grocery shopping should be easy, affordable, and enjoyable.
+          Whether you're stocking up on breakfast items, frozen foods, or fresh produce, our platform is designed
+          to deliver top-quality essentials straight to your doorstep — with unbeatable offers every day.
+        </p>
+      </section>
+
+      {/* Section 2 */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">🌿 Why Choose Jinstore?</h2>
+        <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <li><strong>Fresh Products:</strong> Daily-updated stocks of veggies, dairy, and pantry staples.</li>
+          <li><strong>Weekly Discounts:</strong> See homepage highlights and stock alerts before deals run out.</li>
+          <li><strong>Clean Experience:</strong> Browse by category, track availability, and shop confidently.</li>
+        </ul>
+      </section>
     </div>
   )
 }
