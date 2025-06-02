@@ -74,7 +74,7 @@ const Login = () => {
           <h1 className="text-3xl md:text-5xl font-bold text-center text-purple font-urban">
             Welcome
           </h1>
-          <h4 className="text-md text-center mb-5 text-purple-400">
+          <h4 className="text-sm md:text-md text-center mb-5 text-purple-400">
             Sign in to your Account!
           </h4>
 
@@ -94,7 +94,7 @@ const Login = () => {
                 type="email"
                 value={email}
                 placeholder="Email"
-                className="outline-none border-none w-full"
+                className="outline-none border-none w-full text-sm"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -105,12 +105,12 @@ const Login = () => {
                 type="password"
                 value={password}
                 placeholder="Password"
-                className="outline-none border-none"
+                className="outline-none border-none text-sm"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
-            <div className="px-2 py-1 text-center text-purple-800">
+            <div className="px-2 py-1 text-center text-purple-800 text-sm">
               <NavLink className="">Forget Password ? </NavLink>
             </div>
 
@@ -129,15 +129,15 @@ const Login = () => {
 
             {/* Other platform */}
             <div className="flex items-center justify-center gap-6">
-              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
+              <NavLink to="https://www.facebook.com" target="_blank" className="border border-gray-400 rounded-full transition-all ease-in-out duration-700 hover:scale-112 ">
                 <RiFacebookFill className="m-2 text-blue-600" />
-              </div>
-              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
+              </NavLink>
+              <NavLink to="https://www.google.com" target="_blank" className="border border-gray-400 rounded-full transition-all ease-in-out duration-700 hover:scale-112 ">
                 <FcGoogle className="m-2" />
-              </div>
-              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
+              </NavLink>
+              <NavLink to="https://www.linkedin.com" target="_blank" className="border border-gray-400 rounded-full transition-all ease-in-out duration-700 hover:scale-112 ">
                 <FaLinkedinIn className="m-2 text-blue-700" />
-              </div>
+              </NavLink>
             </div>
           </form>
         </div>
