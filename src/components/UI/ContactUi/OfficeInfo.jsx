@@ -8,18 +8,18 @@ const OfficeInfo = () => {
             <h2 className='font-semibold capitalize text-md'>Our officies</h2>
             <p className='text-xs'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet harum nisi quas quaerat tempora ex quae delectus laboriosam ea!</p>
 
-            <div className='mt-10 flex  justify-between'>
+            <div className='mt-10 flex justify-between gap-2'>
               <div className='flex items-baseline gap-3'>
                 <img src="/images/logo/location_logo.png" alt="Location" className='w-4 '/>
                 <div className='flex flex-col gap-3'>
                   <div className='transform -translate-y-2'>
                     <h4 className='text-xs'>United States</h4>
-                    <h2 className='text-lg font-medium capitalize'>United States Office</h2>
-                    <p className='text-gray-500 text-sm text-[12.5px]'>205 middle road, 2nd floor, New york</p>
+                    <h2 className='text-sm lg:text-[16px] font-medium capitalize'>United State Office</h2>
+                    <p className='text-gray-500 text-xs lg:text-[12.5px]'>205 middle road, 2nd floor, New york</p>
                   </div>
                   <div>
-                    <h4 className='font-medium text-lg'>+0 1234 567 88</h4>
-                    <p className='text-blue-500 underline text-sm'><NavLink>info@example.com</NavLink></p>
+                    <h4 className='font-medium text-sm md:text-md lg:text-lg'>+0 1234 567 88</h4>
+                    <p className='text-blue-500 underline text-xs md:text-sm'><NavLink>info@example.com</NavLink></p>
                   </div>
                 </div>
               </div>
@@ -28,12 +28,12 @@ const OfficeInfo = () => {
                 <div className='flex flex-col gap-3'>
                   <div className='transform -translate-y-2'>
                     <h4 className='text-xs'>Munich</h4>
-                    <h2 className='text-lg font-medium capitalize'>Munich States Office</h2>
-                    <p className='text-gray-500 text-[12.5px]'>205 middle road, 2nd floor, New york</p>
+                    <h2 className='text-sm lg:text-[16px] font-medium capitalize'>Munich States Office</h2>
+                    <p className='text-gray-500 text-xs lg:text-[12.5px]'>205 middle road, 2nd floor, New york</p>
                   </div>
                   <div>
-                    <h4 className='font-medium text-lg'>+5 456 123 22</h4>
-                    <p className='text-blue-500 underline text-sm'><NavLink>contact@example.com</NavLink></p>
+                    <h4 className='font-medium text-sm md:text-md lg:text-lg'>+5 456 123 22</h4>
+                    <p className='text-blue-500 underline text-xs md:text-sm'><NavLink>contact@example.com</NavLink></p>
                   </div>
                 </div>
               </div>
@@ -42,7 +42,8 @@ const OfficeInfo = () => {
             <hr className='w-full text-gray-200 my-8 md:my-10'/>
 
             {/* Follow us */}
-            <div className='flex items-center gap-3'>
+            <div className='hidden md:block'>            
+            <div className='flex items-center gap-3 '>
                 <p className='text-sm'>Follow us :</p>
             
             {/* Social Links */}
@@ -75,6 +76,7 @@ const OfficeInfo = () => {
                   className="w-4"
                 />
               </NavLink>
+            </div>
             </div>
             </div>
           </div>

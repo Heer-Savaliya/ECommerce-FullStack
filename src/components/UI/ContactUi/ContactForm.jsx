@@ -15,23 +15,23 @@ const ContactForm = () => {
       </p>
 
       <form action="" className="py-5 flex flex-col gap-3">
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-500 sh">
+        <div className="flex flex-col lg:flex-row gap-4 w-full">
+          <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-500 flex-1/2">
             <FaUserCircle />
             <input
               type="text"
               name="name"
               placeholder="Username"
-              className="outline-none border-none w-full"
+              className="outline-none border-none w-full text-sm"
             />
           </div>
-          <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-500">
+          <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-500 flex-1/2">
             <MdMarkEmailUnread />
             <input
               type="text"
               name="email"
               placeholder="Email"
-              className="outline-none border-none w-full"
+              className="outline-none border-none w-full text-sm"
             />
           </div>
         </div>
@@ -42,7 +42,7 @@ const ContactForm = () => {
             type="text"
             name="subject"
             placeholder="Subject"
-            className="outline-none border-none w-full"
+            className="outline-none border-none w-full text-sm"
           />
         </div>
 
@@ -52,7 +52,7 @@ const ContactForm = () => {
             name="message"
             placeholder="Message"
             rows={5}
-            className="outline-none border-none w-full resize-none"
+            className="outline-none border-none w-full resize-none text-sm"
           />
         </div>
 
