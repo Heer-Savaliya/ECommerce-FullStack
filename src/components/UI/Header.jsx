@@ -23,7 +23,7 @@ const Header = () => {
               className="h-7 lg:h-8 hidden md:block"
             />
             <img
-              src="/images/logo.png"
+              src="/images/logo/logo.png"
               alt="Logo"
               className="h-8 block md:hidden"
             />

@@ -14,6 +14,12 @@ const MobileMenu = ({ setMenuOpen }) => {
   const closeMobileMenu = () => {
     setMenuOpen(false);
   };
+
+  const handleNavigate = (path) =>{
+    navigate(path);
+    closeMobileMenu();
+  }
+
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -44,39 +50,39 @@ const MobileMenu = ({ setMenuOpen }) => {
             <IoClose onClick={closeMobileMenu} className="cursor-pointer" />
           </div>
           <div
-            onClick={() => navigate("/profile")}
-            className="flex items-center gap-3 text-md text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
+            onClick={() => handleNavigate("/")}
+            className="flex items-center gap-3 text-gray-600 text-sm w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
           >
-            <RiHomeHeartLine className="w-6 h-6" />
+            <RiHomeHeartLine className="w-5 h-5" />
             <span>Home</span>
           </div>
 
           <div
-            onClick={() => navigate("/profile")}
-            className="flex items-center gap-3 text-md text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
+            onClick={() => handleNavigate("/profile")}
+            className="flex items-center gap-3  text-gray-600 text-sm w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
           >
-            <HiSquaresPlus className="w-6 h-6" />
+            <HiSquaresPlus className="w-5 h-5" />
             <span>All Categories</span>
           </div>
           <div
-            onClick={() => navigate("/profile")}
-            className="flex items-center gap-3 text-md text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
+            onClick={() => handleNavigate("./blog")}
+            className="flex items-center gap-3 text-sm text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
           >
-            <BsEnvelopeOpenHeart className="w-5 h-6" />
+            <BsEnvelopeOpenHeart className="w-5 h-4" />
             <span>Blog</span>
           </div>
           <div
-            onClick={() => navigate("/profile")}
-            className="flex items-center gap-3 text-md text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
+            onClick={() => handleNavigate("./contact")}
+            className="flex items-center gap-3 text-sm text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
           >
-            <MdContactSupport className="w-6 h-6" />
+            <MdContactSupport className="w-5 h-5" />
             <span>Contact</span>
           </div>
           <div
-            onClick={() => navigate("/profile")}
-            className="flex items-center gap-3 text-md text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
+            onClick={() => handleNavigate("./setting")}
+            className="flex items-center gap-3 text-sm text-gray-600 w-full px-2 py-2 hover:border-l-4 hover:border-purple-500 hover:bg-purple-50 transition-all duration-150 cursor-pointer"
           >
-            <MdSettingsSuggest className="w-6 h-6" />
+            <MdSettingsSuggest className="w-5 h-5" />
             <span>Setting</span>
           </div>
 

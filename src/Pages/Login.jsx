@@ -88,7 +88,7 @@ const Login = () => {
               </p>
             )}
 
-            <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+            <div className="w-full px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
               <MdMarkEmailUnread />
               <input
                 type="email"
@@ -99,7 +99,7 @@ const Login = () => {
               />
             </div>
 
-            <div className="w-full px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+            <div className="w-full px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
               <RiLockPasswordFill />
               <input
                 type="password"
