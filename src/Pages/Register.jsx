@@ -115,7 +115,7 @@ const Register = () => {
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
       {loader && <Loader />}
 
-      <div className="bg-white shadow-lg overflow-x-hidden rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-10 w-full max-w-5xl">
+      <div className="bg-white shadow-lg overflow-x-hidden rounded-lg flex flex-col lg:flex-row items-center justify-center gap-6 p-6 md:p-10 w-full max-w-5xl">
         {/* Image Section */}
         <div className="w-full md:w-[45%]">
           <img
@@ -127,7 +127,7 @@ const Register = () => {
         </div>
 
         {/* Form Section */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
+        <div className="w-full lg:w-1/2 text-center md:text-left">
           <h1 className="text-2xl md:text-4xl pb-4 font-bold text-center text-purple font-urban">
             Create an Account !
           </h1>
@@ -143,7 +143,7 @@ const Register = () => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Username & Phone */}
-            <div className="flex flex-col lg:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               {/* Username */}
               <div className="w-full lg:w-1/2 flex flex-col gap-1">
                 {errors.username && (
@@ -151,13 +151,13 @@ const Register = () => {
                     {errors.username}
                   </p>
                 )}
-                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <div className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
                   <FaUserCircle />
                   <input
                     type="text"
                     name="username"
                     placeholder="Username"
-                    className="outline-none border-none w-full"
+                    className="outline-none border-none w-full  text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -170,13 +170,13 @@ const Register = () => {
                     {errors.phone}
                   </p>
                 )}
-                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <div className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
                   <FaPhoneAlt />
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Phone"
-                    className="outline-none border-none w-full"
+                    className="outline-none border-none w-full text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -190,20 +190,20 @@ const Register = () => {
                   {errors.email}
                 </p>
               )}
-              <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+              <div className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
                 <MdMarkEmailUnread />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="outline-none border-none w-full"
+                  className="outline-none border-none w-full text-sm"
                   onChange={handleChange}
                 />
               </div>
             </div>
 
             {/* Password & Confirm Password */}
-            <div className="flex flex-col lg:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               {/* Password */}
               <div className="w-full lg:w-1/2 flex flex-col gap-1">
                 {errors.password && (
@@ -211,13 +211,13 @@ const Register = () => {
                     {errors.password}
                   </p>
                 )}
-                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <div className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
                   <RiLockPasswordFill />
                   <input
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className="outline-none border-none w-full"
+                    className="outline-none border-none w-full text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -230,13 +230,13 @@ const Register = () => {
                     {errors.confirmpassword}
                   </p>
                 )}
-                <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
+                <div className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600">
                   <RiLockPasswordFill />
                   <input
                     type="password"
                     name="confirmpassword"
                     placeholder="Confirm Password"
-                    className="outline-none border-none w-full"
+                    className="outline-none border-none w-full text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -250,19 +250,20 @@ const Register = () => {
                   {errors.address}
                 </p>
               )}
-              <div className="px-4 py-2 border border-gray-400 rounded-2xl flex items-start gap-4 text-gray-600">
+              <div className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-start gap-4 text-gray-600">
                 <IoLocationSharp className="mt-1" />
                 <textarea
                   name="address"
                   placeholder="Address"
-                  className="outline-none border-none w-full resize-none"
+                  rows="3"
+                  className="outline-none border-none w-full resize-none text-sm"
                   onChange={handleChange}
                 />
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col lg:flex-row gap-5 py-4">
+            <div className="flex flex-col md:flex-row gap-5 py-4">
               <button type="submit" className="custom-button w-full">
                 Sign Up
               </button>
@@ -275,15 +276,27 @@ const Register = () => {
 
             {/* Social Logins */}
             <div className="flex items-center justify-center gap-6">
-              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
+              <NavLink
+                to="https://www.facebook.com"
+                target="_blank"
+                className="border border-gray-400 rounded-full transition-all ease-in-out duration-700 hover:scale-112 "
+              >
                 <RiFacebookFill className="m-2 text-blue-600" />
-              </div>
-              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
+              </NavLink>
+              <NavLink
+                to="https://www.google.com"
+                target="_blank"
+                className="border border-gray-400 rounded-full transition-all ease-in-out duration-700 hover:scale-112 "
+              >
                 <FcGoogle className="m-2" />
-              </div>
-              <div className="border border-gray-400 rounded-full cursor-pointer transition-all ease-in-out duration-700 hover:scale-112 ">
+              </NavLink>
+              <NavLink
+                to="https://www.linkedin.com"
+                target="_blank"
+                className="border border-gray-400 rounded-full transition-all ease-in-out duration-700 hover:scale-112 "
+              >
                 <FaLinkedinIn className="m-2 text-blue-700" />
-              </div>
+              </NavLink>
             </div>
           </form>
         </div>
