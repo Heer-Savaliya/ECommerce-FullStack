@@ -28,7 +28,7 @@ const UserBar = () => {
             src="/images/logo/user_logo.png"
             className="w-4 lg:w-5 cursor-pointer"
             alt="User"
-            onClick={()=>navigate('./my-account')}
+            onClick={() => navigate("./my-account")}
           />
           <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-purple text-white text-[11px] rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
             Profile

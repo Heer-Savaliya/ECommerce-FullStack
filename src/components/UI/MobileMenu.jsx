@@ -15,10 +15,10 @@ const MobileMenu = ({ setMenuOpen }) => {
     setMenuOpen(false);
   };
 
-  const handleNavigate = (path) =>{
+  const handleNavigate = (path) => {
     navigate(path);
     closeMobileMenu();
-  }
+  };
 
   const handleLogout = async () => {
     try {

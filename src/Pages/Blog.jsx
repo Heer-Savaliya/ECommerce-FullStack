@@ -4,8 +4,8 @@ import { initializeAOS } from "../utilis/initializeAOS";
 
 const Blog = () => {
   useEffect(() => {
-      initializeAOS();
-    }, []);
+    initializeAOS();
+  }, []);
   const blogPosts = [
     {
       title: "Top 10 Spices Every Kitchen Needs",

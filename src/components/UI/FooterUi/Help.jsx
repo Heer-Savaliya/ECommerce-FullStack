@@ -164,28 +164,44 @@ const Help = () => {
               Follow us on social media:
             </p>
             <div className="flex gap-3">
-              <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.facebook.com" target='_blank'>
+              <NavLink
+                className="bg-white p-2 rounded-[8px] custom-shadow"
+                to="https://www.facebook.com"
+                target="_blank"
+              >
                 <img
                   src="/images/logo/facebook_logo.png"
                   alt="Facebook"
                   className="w-4"
                 />
               </NavLink>
-              <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.twitter.com" target='_blank'>
+              <NavLink
+                className="bg-white p-2 rounded-[8px] custom-shadow"
+                to="https://www.twitter.com"
+                target="_blank"
+              >
                 <img
                   src="/images/logo/x_logo.png"
                   alt="Twitter/X"
                   className="w-4"
                 />
               </NavLink>
-              <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.instagram.com" target='_blank'>
+              <NavLink
+                className="bg-white p-2 rounded-[8px] custom-shadow"
+                to="https://www.instagram.com"
+                target="_blank"
+              >
                 <img
                   src="/images/logo/insta_logo.png"
                   alt="Instagram"
                   className="w-4"
                 />
               </NavLink>
-              <NavLink className="bg-white p-2 rounded-[8px] custom-shadow" to="https://www.linkdein.com" target='_blank'>
+              <NavLink
+                className="bg-white p-2 rounded-[8px] custom-shadow"
+                to="https://www.linkdein.com"
+                target="_blank"
+              >
                 <img
                   src="/images/logo/linkdein_logo.png"
                   alt="LinkedIn"
