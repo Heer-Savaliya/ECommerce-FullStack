@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AboutJinstore from "../components/UI/AboutUi/AboutJinstore";
+import { initializeAOS } from "../utilis/initializeAOS";
 
 const Blog = () => {
+  useEffect(() => {
+      initializeAOS();
+    }, []);
   const blogPosts = [
     {
       title: "Top 10 Spices Every Kitchen Needs",
@@ -68,6 +72,7 @@ const Blog = () => {
           <div
             key={index}
             className="bg-white rounded-xl overflow-hidden shadow-sm "
+            data-aos="fade-up"
           >
             <div className="relative group cursor-pointer">
               <img
@@ -92,30 +97,6 @@ const Blog = () => {
           </div>
         ))}
       </div>
-
-      {/* Section 1 */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">
-          🛒 Shop Fresh, Save More — Every Day!
-        </h2>
-        <p className="text-gray-700 leading-7">
-          At <strong>Jinstore</strong>, we believe that grocery shopping should
-          be easy, affordable, and enjoyable. Whether you're stocking up on
-          breakfast items, frozen foods, or fresh produce, our platform is
-          designed to deliver top-quality essentials straight to your doorstep —
-          with unbeatable offers every day.
-        </p>
-      </section>
-
-      {/* Section 2 */}
-      {/* <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">🌿 Why Choose Jinstore?</h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
-          <li><strong>Fresh Products:</strong> Daily-updated stocks of veggies, dairy, and pantry staples.</li>
-          <li><strong>Weekly Discounts:</strong> See homepage highlights and stock alerts before deals run out.</li>
-          <li><strong>Clean Experience:</strong> Browse by category, track availability, and shop confidently.</li>
-        </ul>
-      </section> */}
 
       <AboutJinstore />
     </div>
