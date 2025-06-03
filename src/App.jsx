@@ -12,6 +12,7 @@ import ForgetPassword from "./Pages/ForgetPassword";
 import PageNotFound from "./Pages/PageNotFound";
 import PrivateRoute from "./Routes/PrivateRoute";
 import LandingPage from "./Pages/LandingPage";
+import { UserProvider } from "./context/UserContext";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -94,7 +95,11 @@ const App = () => {
       element: <PageNotFound />,
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <UserProvider >
+      <RouterProvider router={router} />
+    </UserProvider>
+  );
 };
 
 export default App;
