@@ -22,7 +22,7 @@ const LandingPage = () => {
 
   return (
     <div className="bg-purple min-h-screen flex flex-col items-center justify-center">
-      <img src="/images/logo_white.png" alt="" />
+      <img src="/images/logo/logo_white.png" alt="" />
       <div className="pt-4 text-center">
         <h1 className=" font-serif text-3xl md:text-5xl text-white">
           JinStore

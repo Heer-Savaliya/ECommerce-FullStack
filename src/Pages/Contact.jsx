@@ -2,6 +2,7 @@ import React from 'react'
 import OfficeInfo from '../components/UI/ContactUi/OfficeInfo'
 import ContactForm from '../components/UI/ContactUi/ContactForm'
 import AboutUs from '../components/UI/AboutUi/AboutUs'
+import OfficeMap from '../components/UI/ContactUi/OfficeMap'
 
 const Contact = () => {
   return (
@@ -27,6 +28,9 @@ const Contact = () => {
       </div>
 
       <AboutUs />
+
+      {/* Map */}
+      <OfficeMap />
     </div>
   )
 }
