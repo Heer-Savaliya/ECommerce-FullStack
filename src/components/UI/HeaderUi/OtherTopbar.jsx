@@ -1,5 +1,6 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const OtherTopbar = () => {
   return (
@@ -8,7 +9,9 @@ const OtherTopbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex gap-2 lg:gap-4 text-[11px] lg:text-[12.5px]">
             <span>About Us</span>
-            <span>My Account</span>
+            <span>
+              <NavLink to="./my-account">My Account</NavLink>
+              </span>
             <span>Wishlist</span>
             <span className="text-gray-400">|</span>
             <span>
