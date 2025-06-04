@@ -5,16 +5,21 @@ import { doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../firebaseConfig";
 import { RiLockPasswordFill, RiFacebookFill } from "react-icons/ri";
 import { FaUserCircle, FaPhoneAlt } from "react-icons/fa";
+import { FaImages } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
 import { NavLink, useNavigate } from "react-router-dom";
 import Loader from "../components/UI/Loader";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { initializeAOS } from "../utilis/initializeAOS";
+import axios from "axios";
 
 const Register = () => {
+  const [errors, setErrors] = useState({});
+  const [err, setErr] = useState("");
+  const [loader, setLoader] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
     initializeAOS();
   }, []);
@@ -25,21 +30,26 @@ const Register = () => {
     email: "",
     password: "",
     confirmpassword: "",
+    profile: null,
     address: "",
   });
-  const [errors, setErrors] = useState({});
-  const [err, setErr] = useState("");
-  const [loader, setLoader] = useState(false);
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
+    if(e.target.name === "profile"){
+      setFormData({
+        ...formData,
+        profile: e.target.files[0],
+      });
+    }else{
+
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+      setErrors({ ...errors, [e.target.name]: "" });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, phone, email, password, confirmpassword, address } =
+    const { username, phone, email, password, confirmpassword,profile, address } =
       formData;
 
     // Validation
@@ -62,6 +72,8 @@ const Register = () => {
     else if (password != confirmpassword)
       newErrors.confirmpassword = "* Password not match";
 
+    if (!profile) newErrors.profile = "* Profile image is required";
+
     if (!address) newErrors.address = "* Address is required";
 
     // If any error
@@ -81,12 +93,25 @@ const Register = () => {
       );
       const user = userCredential.user;
 
+      // Upload image to Cloudinary
+      const formData = new FormData();
+      formData.append("file", profile);
+      formData.append("upload_preset","e-grocery");
+
+      const cloundinaryResponse = await axios.post(
+        "https://api.cloudinary.com/v1_1/dxctlq87l/image/upload", 
+        formData
+      );
+
+      const imageUrl = cloundinaryResponse.data.secure_url;
+
       // Store in FireStore
       await setDoc(doc(firestore, "users", user.uid), {
         username,
         phone: Number(phone),
         email,
         address,
+        profile: imageUrl,
         createdAt: new Date(),
       });
 
@@ -240,6 +265,34 @@ const Register = () => {
                     onChange={handleChange}
                   />
                 </div>
+              </div>
+            </div>
+
+            {/* Profile image */}
+            <div className="flex flex-col gap-1 w-full">
+              {errors.profile && (
+                <p className="text-left text-red-500 text-[12px] font-semibold px-1">
+                  {errors.profile}
+                </p>
+              )}
+              <div
+                className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600 cursor-pointer"
+                onClick={() => document.getElementById("profileImage").click()}
+              >
+                <FaImages />
+                <span className="text-sm text-gray-500">
+                  {formData.profile ? formData.profile.name : "Choose Profile Image"}
+                </span>
+
+                {/* Hidden actual input */}
+                <input
+                  type="file"
+                  id="profileImage"
+                  name="profile"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleChange}
+                />
               </div>
             </div>
 
