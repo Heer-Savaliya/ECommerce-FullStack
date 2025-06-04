@@ -276,12 +276,12 @@ const Register = () => {
                 </p>
               )}
               <div
-                className="px-4 py-2.5 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600 cursor-pointer"
+                className={`px-4 border border-gray-400 rounded-2xl flex items-center gap-4 text-gray-600 cursor-pointer ${formData.profile ? "py-2.5" : ""}`}
                 onClick={() => document.getElementById("profileImage").click()}
               >
                 <FaImages />
-                <span className="text-sm text-gray-500">
-                  {formData.profile ? formData.profile.name : "Choose Profile Image"}
+                <span className={`text-sm text-gray-500 ${formData.profile ? "" : "bg-purple-200 text-xs py-1.5 my-1.5 px-4 rounded-2xl"}`}>
+                  {formData.profile ? formData.profile.name : "Choose Image"}
                 </span>
 
                 {/* Hidden actual input */}
