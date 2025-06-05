@@ -8,8 +8,14 @@ const UserProfile = () => {
     <div>
       {userData ? (
         <>
-        <h1>Name =  {userData.username}</h1>
-        <img src={userData.profile} alt="" />
+        <div className='flex items-start gap-3 px-6 '>
+        <img src={userData.profile} alt="" className='w-14 rounded-full' />
+        <div>
+        <h1 className='capitalize font-semibold text-lg'>{userData.username}</h1>
+        <p className='text-sm text-gray-500'>{userData.phone}</p>
+
+        </div>
+        </div>
         </>
       ):(
         <p>Loading</p>
