@@ -115,7 +115,6 @@ const Register = () => {
         createdAt: new Date(),
       });
 
-      alert("User registered and stored in Firestore");
       navigate("/login");
     } catch (err) {
       switch (err.code) {
@@ -138,7 +137,9 @@ const Register = () => {
 
   return (
     <div className="min-h-screen grid place-items-center bg-gray-100 p-4">
-      {loader && <Loader />}
+      {loader ? (
+        <Loader />
+      ) :(
 
       <div className="bg-white shadow-lg overflow-x-hidden rounded-lg flex flex-col lg:flex-row items-center justify-center gap-6 p-6 md:p-10 w-full max-w-5xl">
         {/* Image Section */}
@@ -354,6 +355,8 @@ const Register = () => {
           </form>
         </div>
       </div>
+
+      )}
     </div>
   );
 };

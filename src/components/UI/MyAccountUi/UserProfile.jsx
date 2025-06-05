@@ -9,6 +9,7 @@ const UserProfile = () => {
       {userData ? (
         <>
         <h1>Name =  {userData.username}</h1>
+        <img src={userData.profile} alt="" />
         </>
       ):(
         <p>Loading</p>
