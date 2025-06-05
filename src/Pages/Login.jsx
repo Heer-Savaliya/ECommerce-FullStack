@@ -79,7 +79,7 @@ const Login = () => {
               Sign in to your Account!
             </h4>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {error && (
                 <p
                   style={{ color: "red" }}

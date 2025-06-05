@@ -167,7 +167,7 @@ const Register = () => {
             </p>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* Username & Phone */}
             <div className="flex flex-col md:flex-row gap-4">
               {/* Username */}
